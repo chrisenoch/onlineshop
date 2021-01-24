@@ -82,46 +82,6 @@ public class OrderDaoImpl implements OrderDao {
 			return theOrders;
 	}
 	
-	@Override
-	public Order getCorrectOrderSession(HttpSession session, User theUser, int userId) throws Exception {
-		//Ensure that order_contents are added to the correct order.
-		Order theOrder;
-		if (session.getAttribute("order") == null) {
-			
-			List<Order> fetchedOrders = getUnprocessedOrders(userId); 
-			System.out.println("Retrieved order successful: " + fetchedOrders);
-			
-			if (fetchedOrders.size() == 0) {
-				
-				theOrder = new Order();
-				
-				theOrder.setUser(theUser);
-				theOrder.setOrderDate(new Date());
-				theOrder.setProcessed(false);
-				
-				save(theOrder);
-				System.out.println("Order saved");
-				
-				session.setAttribute("order", theOrder);
-				
-			} else if (fetchedOrders.size() == 1) {
-				//Add fetchedOrder to current session
-				theOrder = fetchedOrders.get(0);
-				session.setAttribute("order", theOrder);
-				
-			} else {
-				//An unprocessed order represents the user's basket contents. Each time a purchase is made isProcessed is set to true. 
-				//So there should only ever be a max of one unprocessed orders in the database for each user at any point in time.
-				throw new Exception();
-
-			}
-
-		} else {
-			theOrder = (Order)session.getAttribute("order");
-		}
-		return theOrder;
-	}
-	
 	
 	@Override
 	public Order getCorrectOrder(User theUser, int userId) throws Exception {

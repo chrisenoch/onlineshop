@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class FuntestappApplication {
+public class OnlineshopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FuntestappApplication.class, args);
+		SpringApplication.run(OnlineshopApplication.class, args);
 	}
 	
 	

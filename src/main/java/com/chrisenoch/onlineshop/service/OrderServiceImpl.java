@@ -50,12 +50,6 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	@Transactional
-	public Order getCorrectOrderSession(HttpSession session, User theUser, int userId) throws Exception{
-		return orderDao.getCorrectOrderSession(session, theUser, userId); 
-	}
-	
-	@Override
-	@Transactional
 	public Order getCorrectOrder(User theUser, int userId) throws Exception{
 		return orderDao.getCorrectOrder(theUser, userId); 
 	}
