@@ -1,4 +1,4 @@
-package com.chrisenoch.funtestapp.funtestapp;
+package com.chrisenoch.onlineshop;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;

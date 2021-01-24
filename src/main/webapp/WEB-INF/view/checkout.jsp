@@ -32,7 +32,7 @@
 		<a href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Change address</a>
 	
 		<br><br>
-		<form action='/funtestapp/charge' method='POST' id='checkout-form'>
+		<form action='${pageContext.request.contextPath}/charge' method='POST' id='checkout-form'>
 		    <input type='hidden' value="${amount}" name='amount' />
 		    <input type='hidden' value="${address.id}" name='addressId' />
 		    <input type='hidden' value="${orderId}" name='orderId' />
@@ -46,8 +46,8 @@
 		       data-key="${stripePublicKey}" 
 		         data-amount="${amount}" 
 		         data-currency="${currency}"
-		       data-name='Funtestapp'
-		       data-description='Funtestapp checkout'
+		       data-name='Onlineshop'
+		       data-description='Onlineshop checkout'
 		       data-image
 		         ='https://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
 		       data-locale='auto'

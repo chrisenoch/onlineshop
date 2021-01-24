@@ -49,7 +49,7 @@
 	<c:set var="startIndex" value="${param.page}" />
 
 	<c:if test = "${startIndex > 1}">
-        <a href="/funtestapp/members?page=<c:out value="${startIndex - 1}"/>">Previous</a>
+        <a href="${pageContext.request.contextPath}/members?page=<c:out value="${startIndex - 1}"/>">Previous</a>
     </c:if>
     
 	<c:set var="j" value="${startIndex + 1}" />
@@ -57,12 +57,12 @@
 	
 	 <c:forEach var = "i" begin = "1" end = "${k}">
 		 <c:if test="${i != startIndex}">
-	          <a href="/funtestapp/members?page=<c:out value="${i}"/>">${i}</a>
+	          <a href="${pageContext.request.contextPath}/members?page=<c:out value="${i}"/>">${i}</a>
 	    </c:if>
       </c:forEach>
     
  	<c:if test = "${startIndex < numOfPages}">
-        <a href="/funtestapp/members?page=<c:out value="${startIndex + 1}"/>">Next</a>
+        <a href="${pageContext.request.contextPath}/members?page=<c:out value="${startIndex + 1}"/>">Next</a>
     </c:if>
 
 </div>
