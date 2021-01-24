@@ -115,7 +115,6 @@ public class OrderDaoJPAImpl implements OrderDao {
 			
 			int sum = list.stream().mapToInt(x -> x.getProduct().getPrice() * x.getQuantity()).sum();
 
-			// return the results		
 			return sum; //return price in cents 
 		
 	}

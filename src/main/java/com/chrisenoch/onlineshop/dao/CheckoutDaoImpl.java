@@ -43,7 +43,6 @@ public class CheckoutDaoImpl implements CheckoutDao {
 	
 	@Override
 	public void delete(Checkout theCheckout) {
-		// get current hibernate session
 				Session currentSession = sessionFactory.getCurrentSession();
 
 				currentSession.delete(theCheckout);

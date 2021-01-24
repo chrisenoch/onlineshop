@@ -25,15 +25,13 @@ import com.chrisenoch.onlineshop.service.ProductService;
 @Repository
 @Profile("jpa_criteria")
 public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
-	
-	// define field for entitymanager	
+		
 	private EntityManager entityManager;
 	
 	private ProductService productService;
 	
 	private OrderService orderService;
 		
-	// set up constructor injection
 	@Autowired
 	public OrderContentsDaoImpl_JPA_Criteria(EntityManager theEntityManager) {
 		entityManager = theEntityManager;

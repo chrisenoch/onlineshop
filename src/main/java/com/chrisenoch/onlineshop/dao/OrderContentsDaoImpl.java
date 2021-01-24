@@ -27,7 +27,6 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 
 	@Override
 	public void save(OrderContents theOrderContents) {
-		// get current hibernate session
 				Session currentSession = sessionFactory.getCurrentSession();
 
 				currentSession.saveOrUpdate(theOrderContents);
@@ -36,7 +35,6 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 	
 	@Override
 	public void delete(OrderContents theOrderContents) {
-		// get current hibernate session
 				Session currentSession = sessionFactory.getCurrentSession();
 
 				currentSession.delete(theOrderContents);

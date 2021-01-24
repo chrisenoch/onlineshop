@@ -72,14 +72,6 @@ public class AddressDaoImpl implements AddressDao {
 	@Override
 	public Address getAddress(int addressId) throws NoResultException {		
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-//			String sqlQuery = "from Address where id=" + addressId; 
-//			
-//			Query<Address> theQuery = 
-//					currentSession.createQuery(sqlQuery,
-//												Address.class);
-//			
-//			Address theAddress = theQuery.getSingleResult();
 	
 			return currentSession .get(Address.class, addressId);		
 	}

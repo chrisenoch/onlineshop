@@ -30,7 +30,6 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public void save(Order theOrder) {
-		// get current hibernate session
 				Session currentSession = sessionFactory.getCurrentSession();
 
 				currentSession.saveOrUpdate(theOrder);
@@ -39,7 +38,6 @@ public class OrderDaoImpl implements OrderDao {
 	
 	@Override
 	public void delete(Order theOrder) {
-		// get current hibernate session
 				Session currentSession = sessionFactory.getCurrentSession();
 
 				currentSession.delete(theOrder);
