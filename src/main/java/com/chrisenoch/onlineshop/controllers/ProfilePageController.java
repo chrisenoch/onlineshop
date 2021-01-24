@@ -115,7 +115,7 @@ public class ProfilePageController {
 		    	  
 		          try {
 		            //profileImage.transferTo(new File("D:\\testimages\\"+ newProfile.getiD() + ".png"));
-		        	String fileLocation = "C:\\Users\\chris\\Pictures\\funtestapp\\profile\\"
+		        	String fileLocation = "C:\\Users\\chris\\pictures\\onlineshop\\"
 				        	+ theUser.getiD() + ".png";
 		        	  profileImage.transferTo(new File
 		        			(fileLocation));

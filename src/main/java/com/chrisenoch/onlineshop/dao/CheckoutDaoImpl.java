@@ -4,11 +4,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.chrisenoch.onlineshop.entity.Checkout;
 
 @Repository
+@Profile("hibernate")
 public class CheckoutDaoImpl implements CheckoutDao {
 	
 	private SessionFactory sessionFactory;

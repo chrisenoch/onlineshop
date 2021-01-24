@@ -1,34 +1,29 @@
-package com.chrisenoch.onlineshop.dao;
+package com.chrisenoch.onlineshop.dao.jpa;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import com.chrisenoch.onlineshop.dao.RoleDao;
 import com.chrisenoch.onlineshop.entity.Role;
 
 @Repository
-@Profile("hibernate")
-public class RoleDaoImpl implements RoleDao {
+@Profile("jpa")
+public class RoleDaoJPAImpl implements RoleDao {
+	EntityManager eF ;
 
-	private SessionFactory sessionFactory;
-	
-	@Autowired
-	public RoleDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public RoleDaoJPAImpl(EntityManager eF) {
+		this.eF = eF;
 	}
-
-
 
 
 	@Override
 	public Role findRoleByName(String theRoleName) {
 
-		Session currentSession = sessionFactory.getCurrentSession();
-
-		Query<Role> theQuery = currentSession.createQuery("from Role where authority=:roleName", Role.class);
+		TypedQuery<Role> theQuery = eF.createQuery("from Role where authority=:roleName", Role.class);
 		theQuery.setParameter("roleName", theRoleName);
 		
 		Role theRole = null;

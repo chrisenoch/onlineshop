@@ -1,56 +1,49 @@
-package com.chrisenoch.onlineshop.dao;
+package com.chrisenoch.onlineshop.dao.jpa;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import com.chrisenoch.onlineshop.dao.ProductDao;
 import com.chrisenoch.onlineshop.entity.OrderContents;
 import com.chrisenoch.onlineshop.entity.Product;
 
 @Repository
-@Profile("hibernate")
-public class ProductDaoImpl implements ProductDao {
-	
-	private SessionFactory sessionFactory;
+@Profile("jpa")
+public class ProductDaoJPAImpl implements ProductDao {
 
-	@Autowired
-	public ProductDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	EntityManager eF ;
+
+	public ProductDaoJPAImpl(EntityManager eF) {
+		this.eF = eF;
 	}
 
 	@Override
 	public void save(Product theProduct) {
-				Session currentSession = sessionFactory.getCurrentSession();
-
-				currentSession.saveOrUpdate(theProduct);
+				eF.merge(theProduct);
 		
 	}
 	
 	@Override
 	public void delete(Product theProduct) {
-				Session currentSession = sessionFactory.getCurrentSession();
-
-				currentSession.delete(theProduct);
+				eF.remove(theProduct);
 		
 	}
 	
 	@Override
 	public List<Product> getAllProducts() throws NoResultException {		
-		Session currentSession = sessionFactory.getCurrentSession();
-
 			String sqlQuery = "from Product"; 
 			
-			Query<Product> theQuery = 
-					currentSession.createQuery(sqlQuery,
+			TypedQuery<Product> theQuery = 
+					eF.createQuery(sqlQuery,
 												Product.class);
 			
 			List<Product> theAddresses = theQuery.getResultList();
@@ -61,9 +54,7 @@ public class ProductDaoImpl implements ProductDao {
 	
 	@Override
 	public Product getProduct(int productId) throws NoResultException {		
-		Session currentSession = sessionFactory.getCurrentSession();
-	
-			return currentSession.get(Product.class, productId);
+			return eF.find(Product.class, productId);
 			
 	}
 	
@@ -74,8 +65,7 @@ public class ProductDaoImpl implements ProductDao {
 			throw new Exception("Invalid quantity entered. You cannot reduce the stock by a number less than one.");
 		} //Do a test for this
 		
-		Session currentSession = sessionFactory.getCurrentSession();
-		Product product = currentSession.get(Product.class, productId);
+		Product product = eF.find(Product.class, productId);
 		
 		int currentStockQuantity = product.getStock();
 		System.out.println("currentStockQuantity " + currentStockQuantity);
@@ -100,8 +90,7 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public int addStock(int productId, int quantityToAdd) throws Exception {		
 
-		Session currentSession = sessionFactory.getCurrentSession();
-		Product product = currentSession.get(Product.class, productId);
+		Product product = eF.find(Product.class, productId);
 
 		int newStock = product.getStock() + quantityToAdd;
 		product.setStock(newStock);

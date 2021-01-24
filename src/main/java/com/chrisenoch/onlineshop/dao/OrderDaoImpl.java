@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.chrisenoch.onlineshop.entity.Order;
@@ -17,6 +18,7 @@ import com.chrisenoch.onlineshop.entity.OrderContents;
 import com.chrisenoch.onlineshop.entity.User;
 
 @Repository
+@Profile("hibernate")
 public class OrderDaoImpl implements OrderDao {
 	
 	private SessionFactory sessionFactory;
@@ -133,22 +135,7 @@ public class OrderDaoImpl implements OrderDao {
 			
 			theQuery.setParameter("orderId", orderId);
 			List<OrderContents> list = theQuery.getResultList();
-				
-	/*
-	 * 		//Hashtable priceMap = new Hashtable();
-			int sum = 0;
-			for (OrderContents item: list) {
-				double productPrice = item.getProduct().getPrice(); //Improve code: this should be an integer
-				int quantity = item.getQuantity();
-				
-				sum += (productPrice * quantity);
-				System.out.println("Print sum: " + sum);
-			}
-			
-			System.out.println("debugging sum " + sum);
-	 */
-			
-			
+						
 			int sum = list.stream().mapToInt(x -> x.getProduct().getPrice() * x.getQuantity()).sum();
 
 			// return the results		
@@ -160,14 +147,7 @@ public class OrderDaoImpl implements OrderDao {
 	public Order getOrder(int orderId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 
-//			String sqlQuery = "from Order where id=" + orderId; 
-//			
-//			Query<Order> theQuery = 
-//					currentSession.createQuery(sqlQuery,
-//												Order.class);
-//			
-//			Order order = theQuery.getSingleResult();
-//						
+					
 			return currentSession.get(Order.class, orderId);
 		
 	}

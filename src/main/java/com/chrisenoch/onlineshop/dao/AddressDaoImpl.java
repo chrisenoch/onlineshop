@@ -8,11 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import com.chrisenoch.onlineshop.entity.Address;
 
 @Repository
+@Profile("hibernate")
 public class AddressDaoImpl implements AddressDao {
 
 	private SessionFactory sessionFactory;

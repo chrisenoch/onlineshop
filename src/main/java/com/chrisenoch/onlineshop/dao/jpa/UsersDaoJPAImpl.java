@@ -1,38 +1,35 @@
- package com.chrisenoch.onlineshop.dao;
+ package com.chrisenoch.onlineshop.dao.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+import com.chrisenoch.onlineshop.dao.UsersDao;
 import com.chrisenoch.onlineshop.entity.User;
 
 @Repository
-@Profile("hibernate")
-public class UsersDaoImpl implements UsersDao{
+@Profile("jpa")
+public class UsersDaoJPAImpl implements UsersDao{
 	
-	private SessionFactory sessionFactory;
-	
-	@Autowired
-	public UsersDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	EntityManager eF ;
 
+	public UsersDaoJPAImpl(EntityManager eF) {
+		this.eF = eF;
+	}
 
 	@Override //@Transactional - functionality moved up to service layer
 	public List<User> getMembers(int pageStart, int recordsPerPage) {
-		
-		Session currentSession = sessionFactory.getCurrentSession();
 
 			// create a query  ... sort by last name
-			Query<User> theQuery = 
-					currentSession.createQuery("from Users order by firstName",
+			TypedQuery<User> theQuery = 
+					eF.createQuery("from Users order by firstName",
 												User.class)
 					.setFirstResult(pageStart)
 					.setMaxResults(recordsPerPage);
@@ -49,20 +46,16 @@ public class UsersDaoImpl implements UsersDao{
 	@Override
 	public void saveProfilePicture(User theUser, String pictureURL) {
 		theUser.setPictureURL(pictureURL);
-		
-		Session currentSession = sessionFactory.getCurrentSession();
 
-			currentSession.saveOrUpdate(theUser); //Learn code.
+			eF.merge(theUser); //Learn code.
 	}
 	
 	
 	@Override
 	public int getTotalMembers() {
-		
-		Session currentSession = sessionFactory.getCurrentSession();
 
-			Query<User> theQuery = 
-					currentSession.createQuery("from Users",
+			TypedQuery<User> theQuery = 
+					eF.createQuery("from Users",
 												User.class);
 
 		 	List<User> members = theQuery.getResultList();
@@ -74,15 +67,13 @@ public class UsersDaoImpl implements UsersDao{
 		
 	@Override
 	public User getUserByUsername(String username) throws NoResultException {		
-		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//Try stmt in case invalid username entered or other problem.
 		try {
 			String sqlQuery = "from Users where username=:username"; 
 
-			Query<User> theQuery = 
-					currentSession.createQuery(sqlQuery,
-												User.class);
+			TypedQuery<User> theQuery = 
+					eF.createQuery(sqlQuery, User.class);
 			
 			theQuery.setParameter("username", username);
 			
@@ -100,13 +91,11 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public User getUserByEmail(String email)  {		
-		Session currentSession = sessionFactory.getCurrentSession();
 		
 			String sqlQuery = "from Users where email=:email"; 
 
-			Query<User> theQuery = 
-					currentSession.createQuery(sqlQuery,
-												User.class);	
+			TypedQuery<User> theQuery = 
+					eF.createQuery(sqlQuery, User.class);	
 			theQuery.setParameter("email", email);
 			
 			User theUser;
@@ -118,21 +107,13 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public void save(User theUser) {
-		// get current hibernate session
-				Session currentSession = sessionFactory.getCurrentSession();
-
-				// create the user ... finally LOL
-				currentSession.saveOrUpdate(theUser);
+				eF.merge(theUser);
 		
 	}
 	
 	@Override
 	public void delete(User theUser) {
-		// get current hibernate session
-				Session currentSession = sessionFactory.getCurrentSession();
-
-				// create the user ... finally LOL
-				currentSession.delete(theUser);
+				eF.remove(theUser);
 		
 	}
 	
