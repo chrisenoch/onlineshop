@@ -84,7 +84,7 @@ public class CheckoutController {
 		if (!updatedOrderContentsAccordingToStock.isEmpty()) {
 			//logic for when the stock is less than requested amount
 			
-			assignNewOrderContentsAccordingToStock(theOrder, updatedOrderContentsAccordingToStock);
+			stockReservedByUserService.assignNewOrderContentsAccordingToStock(theOrder, updatedOrderContentsAccordingToStock);
 			
 			//Summary of changes made to order-> this is checked for and displayed in jsp page
 			redirectAttributes.addFlashAttribute("updatedOrderContentsDueToStockShortage", updatedOrderContentsAccordingToStock);
@@ -160,36 +160,6 @@ public class CheckoutController {
         return userId;
 	}
 	
-	
-	private void assignNewOrderContentsAccordingToStock(Order theOrder,
-			Map<Product, Map<Integer, Integer>> updatedOrderContentsAccordingToStock) {
-		theOrder.getOrderContents().clear(); //remove associations so orderContents won't be resaved by cascade
-		
-		//only delete orderContents if they have stock problems			
-		for (Entry<Product, Map<Integer, Integer>>  map : updatedOrderContentsAccordingToStock.entrySet()) {
-			orderContentsService.delete(map.getKey());
-		}	
-
-		//loop over map and add new order contents to database		
-		for ( Entry<Product, Map<Integer, Integer>> map : updatedOrderContentsAccordingToStock.entrySet()) {
-			Product product = (Product) map.getKey();
-			
-			for ( Entry<Integer, Integer> map2 : map.getValue().entrySet()) {
-				//If available stock is zero, do not save new OrderContents in database
-				if (map2.getValue() < 1) {
-					continue;
-				}
-				
-				OrderContents oC = new OrderContents(theOrder, product, map2.getValue());
-				orderContentsService.save(oC);
-				System.out.println("debugging is orderContents null inside loop" + theOrder.getOrderContents());
-			}				
-		}
-		
-		//Reassign orderContents to Order object
-		List<OrderContents> updatedOrderContents = orderContentsService.getOrderContents(theOrder);
-		theOrder.setOrderContents(updatedOrderContents);
-	}
 	
 	 private void getPreferredAddress(List<Address> addresses, AddressService addressService, Model model) {
      	int addressListSize = addresses.size();
