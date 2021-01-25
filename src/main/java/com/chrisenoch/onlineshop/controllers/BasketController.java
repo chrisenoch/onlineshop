@@ -61,8 +61,7 @@ public class BasketController {
 		Order theOrder = orderService.getCorrectOrder(theUser, userId);
 		double shippingCost = theOrder.shippingCost(theOrder.getOrderContentsTotal());
 		//Get order id from session - If user visits basket page before shop page, there may not be an order session available
-		int orderId = theOrder.getId();
-		double totalOrderContentsPriceInCents = orderService.totalOrderContentsPrice(orderId); 
+		double totalOrderContentsPriceInCents = orderContentsService.totalOrderContentsPrice(theOrder); 
 		double totalOrderContentsPrice = totalOrderContentsPriceInCents/100;
 		double totalOrderPrice = totalOrderContentsPrice + shippingCost;
 		

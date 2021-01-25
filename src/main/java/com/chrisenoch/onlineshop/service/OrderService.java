@@ -14,7 +14,7 @@ public interface OrderService {
 	public List<Order> getAllOrders(int userId);
 	public List<Order> getUnprocessedOrders(int userId);
 	public Order getCorrectOrder(User theUser, int userId) throws Exception;
-	public int totalOrderContentsPrice(int orderId);
+	//public int totalOrderContentsPrice(int orderId);
 	public Order getOrder(int orderId);
 
 }

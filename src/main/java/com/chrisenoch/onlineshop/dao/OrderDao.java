@@ -13,8 +13,7 @@ import com.chrisenoch.onlineshop.entity.User;
 	 void delete(Order theOrder);
 	 List<Order> getAllOrders(int userId);
 	 List<Order>getUnprocessedOrders(int userId);
-	 Order getCorrectOrder(User theUser, int userId) throws Exception;
-	 int totalOrderContentsPrice(int orderId);
+	// int totalOrderContentsPrice(int orderId);
 	 Order getOrder(int orderId);
 
 }

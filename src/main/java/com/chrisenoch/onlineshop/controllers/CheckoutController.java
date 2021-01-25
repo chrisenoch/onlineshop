@@ -158,13 +158,11 @@ public class CheckoutController {
 		double shippingCost = theOrder.shippingCost(theOrder.getOrderContentsTotal());
 		//Get order id from session - If user visits basket page before shop page, there may not be an order session available
 		
-		int orderId = theOrder.getId();
-		int totalOrderContentsPriceInCents = orderService.totalOrderContentsPrice(orderId); 
+		int totalOrderContentsPriceInCents = orderContentsService.totalOrderContentsPrice(theOrder); 
 		int totalOrderPriceInCents = (int) (totalOrderContentsPriceInCents + (shippingCost * 100));
 		
-		
+		int orderId = theOrder.getId();
 		double totalOrderPrice = totalOrderPriceInCents;
-		
 		totalOrderPrice = totalOrderPriceInCents /100.0;
 		String totalOrderPriceFormatted = String.format("%.2f", totalOrderPrice);
 
@@ -181,7 +179,8 @@ public class CheckoutController {
 	
 	private void assignNewOrderContentsAccordingToStock(Order theOrder,
 			Map<Product, Map<Integer, Integer>> updatedOrderContentsAccordingToStock) {
-		theOrder.setOrderContents(null); //remove associations so orderContents won't be resaved by cascade
+		//theOrder.setOrderContents(null); //remove associations so orderContents won't be resaved by cascade
+		theOrder.getOrderContents().clear();
 		
 		//only delete orderContents if they have stock problems			
 		for (Entry<Product, Map<Integer, Integer>>  map : updatedOrderContentsAccordingToStock.entrySet()) {

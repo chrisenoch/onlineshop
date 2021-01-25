@@ -38,7 +38,7 @@ public class OrderContentsServiceImpl implements OrderContentsService {
 	@Override
 	@Transactional
 	public boolean checkIfInBasket(Product theProduct, Order theOrder) {
-		List<OrderContents> orderContents = orderContentsDao.getOrderContentsByproductAndOrder(theProduct, theOrder);
+		List<OrderContents> orderContents = orderContentsDao.getOrderContentsByProductAndOrder(theProduct, theOrder);
 		return orderContents.size() > 0? true : false;
 
 	}
@@ -48,6 +48,20 @@ public class OrderContentsServiceImpl implements OrderContentsService {
 	public List<OrderContents> getOrderContents(Order theOrder){
 		return orderContentsDao.getOrderContents(theOrder);
 	}
+	
+	@Override
+	@Transactional
+	public int totalOrderContentsPrice(Order theOrder) {
+		List<OrderContents> list = orderContentsDao.getOrderContents(theOrder);
+		
+		int sum = list.stream().mapToInt(x -> x.getProduct().getPrice() * x.getQuantity()).sum();
+
+		// return the results		
+		return sum; //return price in cents 
+		
+		
+	}
+	
 	
 	@Override
 	@Transactional

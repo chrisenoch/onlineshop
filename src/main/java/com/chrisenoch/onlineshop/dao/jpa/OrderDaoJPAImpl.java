@@ -65,59 +65,6 @@ public class OrderDaoJPAImpl implements OrderDao {
 			return theOrders;
 	}
 	
-	@Override
-	public Order getCorrectOrder(User theUser, int userId) throws Exception {
-		//Ensure that order_contents are added to the correct order.
-		Order theOrder;
-		System.out.println("enter getcorrect order");
-
-			List<Order> fetchedOrders = getUnprocessedOrders(userId); 
-			System.out.println("Retrieved order successful: " + fetchedOrders);
-			
-			if (fetchedOrders.size() == 0) {
-				System.out.println("debug, fetchedorders == 0");
-				theOrder = new Order();
-				
-				theOrder.setUser(theUser);
-				theOrder.setOrderDate(new Date());
-				theOrder.setProcessed(false);
-				
-				save(theOrder);
-				System.out.println("Order saved");
-				
-				
-			} else if (fetchedOrders.size() == 1) {
-				System.out.println("debug, fetchedorders == 1");
-				//Add fetchedOrder to current session
-				theOrder = fetchedOrders.get(0);
-				
-			} else {
-				//An unprocessed order represents the user's basket contents. Each time a purchase is made isProcessed is set to true. 
-				//So there should only ever be a max of one unprocessed orders in the database for each user at any point in time.
-				throw new Exception();
-
-			}
-
-		
-		return theOrder;
-	}
-	
-	@Override
-	public int totalOrderContentsPrice(int orderId) {
-
-			String sqlQuery = "from OrderContents where order.id=:orderId"; 
-			
-			TypedQuery<OrderContents> theQuery = 
-					eF.createQuery(sqlQuery, OrderContents.class);
-				
-			theQuery.setParameter("orderId", orderId);
-			List<OrderContents> list = theQuery.getResultList();	
-			
-			int sum = list.stream().mapToInt(x -> x.getProduct().getPrice() * x.getQuantity()).sum();
-
-			return sum; //return price in cents 
-		
-	}
 	
 	@Override
 	public Order getOrder(int id) {

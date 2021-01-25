@@ -15,6 +15,7 @@ public interface OrderContentsService {
 	public List<OrderContents> getOrderContents(Order theOrder);
 	public OrderContents getOrderContent(Product theProduct);
 	public OrderContents getOrderContent(int id);
+	public int totalOrderContentsPrice(Order theOrder);
 	
 
 }

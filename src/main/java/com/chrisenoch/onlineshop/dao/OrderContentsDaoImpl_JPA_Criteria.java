@@ -52,7 +52,7 @@ public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
 	}
 	
 	@Override
-	public boolean checkIfInBasket(Product theProduct, Order theOrder) {
+	public List<OrderContents> getOrderContentsByProductAndOrder(Product theProduct, Order theOrder) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
@@ -68,7 +68,7 @@ public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
 		Query<OrderContents> query = currentSession.createQuery(cr);
 		List<OrderContents> theOrderContents = query.getResultList(); 
 		
-		return theOrderContents.size() > 0? true : false;
+		return theOrderContents;
 		
 	}
 	

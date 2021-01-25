@@ -1,5 +1,6 @@
 package com.chrisenoch.onlineshop.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -50,15 +51,42 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	@Transactional
-	public Order getCorrectOrder(User theUser, int userId) throws Exception{
-		return orderDao.getCorrectOrder(theUser, userId); 
+	public Order getCorrectOrder(User theUser, int userId) throws Exception{	
+		List<Order> fetchedOrders = orderDao.getUnprocessedOrders(userId);
+		
+		Order theOrder;
+		if (fetchedOrders.size() == 0) {
+			System.out.println("debug, fetchedorders == 0");
+			theOrder = new Order();
+			
+			theOrder.setUser(theUser);
+			theOrder.setOrderDate(new Date());
+			theOrder.setProcessed(false);
+			
+			save(theOrder);
+			System.out.println("Order saved");
+			
+			
+		} else if (fetchedOrders.size() == 1) {
+			System.out.println("debug, fetchedorders == 1");
+			//Add fetchedOrder to current session
+			theOrder = fetchedOrders.get(0);
+			
+		} else {
+			//An unprocessed order represents the user's basket contents. Each time a purchase is made isProcessed is set to true. 
+			//So there should only ever be a max of one unprocessed orders in the database for each user at any point in time.
+			throw new Exception();
+
+		}
+
+	return theOrder;	
 	}
 	
-	@Override
-	@Transactional
-	public int totalOrderContentsPrice(int orderId) {
-		return orderDao.totalOrderContentsPrice(orderId);
-	}
+//	@Override
+//	@Transactional
+//	public int totalOrderContentsPrice(int orderId) {
+//		return orderDao.totalOrderContentsPrice(orderId);
+//	}
 	
 	@Override
 	@Transactional

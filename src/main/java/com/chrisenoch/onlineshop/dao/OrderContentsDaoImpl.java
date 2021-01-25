@@ -42,7 +42,7 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 	}
 	
 	@Override
-	public List<OrderContents>  getOrderContentsByproductAndOrder(Product theProduct, Order theOrder) {
+	public List<OrderContents>  getOrderContentsByProductAndOrder(Product theProduct, Order theOrder) {
 		
 		int productId = theProduct.getId();
 		int orderId = theOrder.getId();
