@@ -1,4 +1,4 @@
-package com.chrisenoch.onlineshop.entity;
+ package com.chrisenoch.onlineshop.entity;
 
 import java.time.LocalDateTime;
 
@@ -41,5 +41,10 @@ public class DeliveryInformation {
 		this.isDelivered = isDelivered;
 		this.address = address;
 	}
+
+	public DeliveryInformation() {
+	}
+	
+	
 
 }

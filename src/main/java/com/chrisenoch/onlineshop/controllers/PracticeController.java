@@ -11,19 +11,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chrisenoch.onlineshop.dao.jpa.OrderDaoJPAImpl;
+import com.chrisenoch.onlineshop.dao.jpa.PracticeDaoJPAImpl;
 import com.chrisenoch.onlineshop.entity.Order;
 import com.chrisenoch.onlineshop.entity.User;
 
-//@Controller
+@Controller
 @RequestMapping("/practice")
 public class PracticeController {
 	
 	private OrderDaoJPAImpl pJPA;
+	private PracticeDaoJPAImpl pracDao;
 	
 	@Autowired
-	public PracticeController(OrderDaoJPAImpl pJPA) {;
+	public PracticeController(OrderDaoJPAImpl pJPA, PracticeDaoJPAImpl pracDao) {;
 		this.pJPA = pJPA;
+		this.pracDao = pracDao;
 	}
+	
+	@GetMapping("/savecheckout")
+	public String savecheckout() {
+		pracDao.save();
+		return "profile-page";
+	}
+	
+	@GetMapping("/savecheckoutandorder")
+	public String savecheckoutandorder() {
+		pracDao.saveCheckoutAndOrder();
+		return "profile-page";
+	}
+	
+	@GetMapping("/saveallcheckout")
+	public String saveallcheckout() {
+		pracDao.saveallcheckout();
+		
+		return "profile-page";
+	}
+	
+	
 	
 //	@GetMapping("/jpa")
 //	public String getOrdersJPA() {

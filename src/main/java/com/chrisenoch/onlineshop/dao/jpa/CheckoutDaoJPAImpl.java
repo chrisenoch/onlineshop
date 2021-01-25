@@ -36,7 +36,7 @@ public class CheckoutDaoJPAImpl implements CheckoutDao {
 				theQuery.executeUpdate();
 
 				//Save checkout information
-				eF.persist(theCheckout);
+				eF.merge(theCheckout);
 				
 	}
 	
