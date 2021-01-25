@@ -87,14 +87,14 @@ public class ProfilePageController {
 		 model.addAttribute("user", theUser);
 			
 		 ProfilePage profile= new ProfilePage();
-		 model.addAttribute("newProfile", profile);
+		 model.addAttribute("newProfilePicture", profile);
 
 		return "profile-page";
 		
 	}
 	
 	@PostMapping
-	public String processImageUpload(@ModelAttribute("newProfile") ProfilePage newProfile,  BindingResult result, 
+	public String processImageUpload(@ModelAttribute("newProfilePicture") ProfilePage newProfilePicture,  BindingResult result, 
 			HttpServletRequest request, HttpSession session) {
 		
 		  User theUser = (User)session.getAttribute("user"); 
@@ -104,10 +104,11 @@ public class ProfilePageController {
 		      throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
 		   }
 		 
-		usersService.uploadProfilePicture(newProfile, request, theUser);
+		usersService.uploadProfilePicture(newProfilePicture, request, theUser
+				, "C:\\Users\\chris\\pictures\\onlineshop\\profile\\" + theUser.getiD() + ".png");
 		
 		System.out.println("Inside post method");
-		System.out.println("test method for Chris " + newProfile.getTest());
+		System.out.println("test method for Chris " + newProfilePicture.getTest());
 	
 	   //redirect so that refreshing page does not resubmit values
 	   return "redirect:/showProfilePage";

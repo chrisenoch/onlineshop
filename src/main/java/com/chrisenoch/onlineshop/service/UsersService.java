@@ -26,5 +26,5 @@ public interface UsersService extends UserDetailsService {
 	
 	public User getUserByEmail(String email);
 
-	void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser); 
+	void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser, String fileLocation); 
 }

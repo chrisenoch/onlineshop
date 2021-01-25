@@ -120,7 +120,8 @@ private BCryptPasswordEncoder passwordEncoder;
 	}
 	
 	@Override
-	public void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser) {
+	public void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser
+			, String fileLocation) {
 		 MultipartFile profileImage = profilePage.getProfileImage();
 		   String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		         
@@ -128,19 +129,13 @@ private BCryptPasswordEncoder passwordEncoder;
 		    	  System.out.println("debugging root dir" + rootDirectory);
 		    	  
 		          try {
-		            //profileImage.transferTo(new File("D:\\testimages\\"+ newProfile.getiD() + ".png"));
-		        	String fileLocation = "C:\\Users\\chris\\pictures\\onlineshop\\profile\\"
-				        	+ theUser.getiD() + ".png";
 		        	  profileImage.transferTo(new File
 		        			(fileLocation));
 		        	
 		        	  String pictureURL = "/profile/" + theUser.getiD() + ".png";
 		        	//Store profile url in database
 		        	  saveProfilePicture(theUser, pictureURL);
-		        	  
 
-		        	  
-		        	
 		          } catch (Exception e) {
 		         throw new RuntimeException("Product Image saving failed", e);
 		          }

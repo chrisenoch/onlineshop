@@ -46,7 +46,7 @@
 	
 	<c:if test = "${isProfileOwner}">
 		<section class="container">
-			<form:form method="POST" action="?${_csrf.parameterName}=${_csrf.token}" modelAttribute="newProfile"
+			<form:form method="POST" action="?${_csrf.parameterName}=${_csrf.token}" modelAttribute="newProfilePicture"
 				class="form-horizontal" enctype="multipart/form-data">
 				<fieldset>
 					<legend>Add new profile picture</legend>
