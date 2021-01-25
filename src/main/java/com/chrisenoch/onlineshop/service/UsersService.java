@@ -2,8 +2,11 @@ package com.chrisenoch.onlineshop.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.chrisenoch.onlineshop.entity.ProfilePage;
 import com.chrisenoch.onlineshop.entity.User;
 import com.chrisenoch.onlineshop.registration.user.RegistrationUser;
 
@@ -21,5 +24,7 @@ public interface UsersService extends UserDetailsService {
 	
 	public void delete(User theUser);
 	
-	public User getUserByEmail(String email); 
+	public User getUserByEmail(String email);
+
+	void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser); 
 }

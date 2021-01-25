@@ -98,41 +98,14 @@ public class ProfilePageController {
 			HttpServletRequest request, HttpSession session) {
 		
 		  User theUser = (User)session.getAttribute("user"); 
-		  String fruit = (String)session.getAttribute("fruit");
 		
 		String[] suppressedFields = result.getSuppressedFields();
 		   if (suppressedFields.length > 0) {
 		      throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
 		   }
 		 
-
+		usersService.uploadProfilePicture(newProfile, request, theUser);
 		
-		 MultipartFile profileImage = newProfile.getProfileImage();
-		   String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		         
-		      if (profileImage!=null && !profileImage.isEmpty()) {
-		    	  System.out.println("debugging root dir" + rootDirectory);
-		    	  
-		          try {
-		            //profileImage.transferTo(new File("D:\\testimages\\"+ newProfile.getiD() + ".png"));
-		        	String fileLocation = "C:\\Users\\chris\\pictures\\onlineshop\\profile\\"
-				        	+ theUser.getiD() + ".png";
-		        	  profileImage.transferTo(new File
-		        			(fileLocation));
-		        	
-		        	  String pictureURL = "/profile/" + theUser.getiD() + ".png";
-		        	//Store profile url in database
-		        	  usersService.saveProfilePicture(theUser, pictureURL);
-		        	  
-
-		        	  
-		        	
-		          } catch (Exception e) {
-		         throw new RuntimeException("Product Image saving failed", e);
-		      }
-		      }
-
-
 		System.out.println("Inside post method");
 		System.out.println("test method for Chris " + newProfile.getTest());
 	

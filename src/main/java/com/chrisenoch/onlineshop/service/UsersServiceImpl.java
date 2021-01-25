@@ -1,9 +1,12 @@
 package com.chrisenoch.onlineshop.service;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,9 +16,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.chrisenoch.onlineshop.dao.RoleDao;
 import com.chrisenoch.onlineshop.dao.UsersDao;
+import com.chrisenoch.onlineshop.entity.ProfilePage;
 import com.chrisenoch.onlineshop.entity.Role;
 import com.chrisenoch.onlineshop.entity.User;
 import com.chrisenoch.onlineshop.registration.user.RegistrationUser;
@@ -112,6 +117,37 @@ private BCryptPasswordEncoder passwordEncoder;
 	@Transactional
 	public User getUserByEmail(String email) {
 		return usersDAO.getUserByEmail(email);
+	}
+	
+	@Override
+	public void uploadProfilePicture(ProfilePage profilePage, HttpServletRequest request, User theUser) {
+		 MultipartFile profileImage = profilePage.getProfileImage();
+		   String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		         
+		      if (profileImage!=null && !profileImage.isEmpty()) {
+		    	  System.out.println("debugging root dir" + rootDirectory);
+		    	  
+		          try {
+		            //profileImage.transferTo(new File("D:\\testimages\\"+ newProfile.getiD() + ".png"));
+		        	String fileLocation = "C:\\Users\\chris\\pictures\\onlineshop\\profile\\"
+				        	+ theUser.getiD() + ".png";
+		        	  profileImage.transferTo(new File
+		        			(fileLocation));
+		        	
+		        	  String pictureURL = "/profile/" + theUser.getiD() + ".png";
+		        	//Store profile url in database
+		        	  saveProfilePicture(theUser, pictureURL);
+		        	  
+
+		        	  
+		        	
+		          } catch (Exception e) {
+		         throw new RuntimeException("Product Image saving failed", e);
+		          }
+		     }
+
+		
+		
 	}
 
 }
