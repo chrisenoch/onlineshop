@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chrisenoch.onlineshop.dao.ProductDao;
 import com.chrisenoch.onlineshop.dao.StockReservedByUserDao;
+import com.chrisenoch.onlineshop.entity.OrderContents;
 import com.chrisenoch.onlineshop.entity.Product;
 import com.chrisenoch.onlineshop.entity.StockReservedByUser;
 import com.chrisenoch.onlineshop.entity.User;
@@ -48,6 +49,22 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 		
 		productService.reduceStock(productId, quantityToReduce);
 		
+	}
+	
+	public void shiftStockFromProductToStockReservedByUserByOrderContents(User theUser,
+			List<OrderContents> orderContents) throws Exception {
+		for (OrderContents oC : orderContents) {
+			int stockQuantityToDelete = oC.getQuantity();
+			Product product = oC.getProduct();
+			//deleteStockByProductId	
+			
+			StockReservedByUser stockReservedByUser = new StockReservedByUser(product, 
+					stockQuantityToDelete, theUser);
+			
+			shiftStockFromProductToStockReservedByUser(product.getId(),
+					stockQuantityToDelete, stockReservedByUser);		
+			
+		}
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ package com.chrisenoch.onlineshop.service;
 
 import java.util.List;
 
+import com.chrisenoch.onlineshop.entity.OrderContents;
 import com.chrisenoch.onlineshop.entity.StockReservedByUser;
 import com.chrisenoch.onlineshop.entity.User;
 
@@ -19,5 +20,8 @@ public interface StockReservedByUserService {
 	List<StockReservedByUser>  getStockReservedByUser(User theUser);
 	
 	void deleteStockReservedByUser(User theUser);
+
+	void shiftStockFromProductToStockReservedByUserByOrderContents(User theUser, List<OrderContents> orderContents)
+			throws Exception;
 
 }

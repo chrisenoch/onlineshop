@@ -98,9 +98,9 @@ public class CheckoutController {
 		//Get total price
 		setPaymentAndPriceDetails(session, model, orderService);
 		
-		//temporaily hold the selected stock for the user until the user completes/cancels the payment	
+		//Temporarily hold the selected stock for the user until the user completes/cancels the payment	
 		//For each OrderContents shiftStockFromProductToStockReservedByUser
-		shiftStockFromProductToStockReservedByUserByOrderContents(theUser, orderContents);
+		 stockReservedByUserService.shiftStockFromProductToStockReservedByUserByOrderContents(theUser, orderContents);
         
         //Get default address if there is one. If not get last address used. If not, do not set model attribute
 		//and user automatically redirected to manageaddresses in order to add address
@@ -112,23 +112,6 @@ public class CheckoutController {
    	
     }
        // model.addAttribute("currency", ChargeRequest.Currency.EUR);
-
-	private void shiftStockFromProductToStockReservedByUserByOrderContents(User theUser,
-			List<OrderContents> orderContents) throws Exception {
-		for (OrderContents oC : orderContents) {
-			int stockQuantityToDelete = oC.getQuantity();
-			Product product = oC.getProduct();
-			//deleteStockByProductId	
-			
-			StockReservedByUser stockReservedByUser = new StockReservedByUser(product, 
-					stockQuantityToDelete, theUser);
-			
-			System.out.println("stock about to be shited");	
-			stockReservedByUserService.shiftStockFromProductToStockReservedByUser(product.getId(),
-					stockQuantityToDelete, stockReservedByUser);		
-			
-		}
-	}
 
 	@PostMapping("/checkoutchanged")
     public String checkoutChanged(Model model,
@@ -176,6 +159,7 @@ public class CheckoutController {
         
         return userId;
 	}
+	
 	
 	private void assignNewOrderContentsAccordingToStock(Order theOrder,
 			Map<Product, Map<Integer, Integer>> updatedOrderContentsAccordingToStock) {
