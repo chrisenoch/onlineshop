@@ -38,7 +38,8 @@ public class OrderContentsServiceImpl implements OrderContentsService {
 	@Override
 	@Transactional
 	public boolean checkIfInBasket(Product theProduct, Order theOrder) {
-		return orderContentsDao.checkIfInBasket(theProduct, theOrder);
+		List<OrderContents> orderContents = orderContentsDao.getOrderContentsByproductAndOrder(theProduct, theOrder);
+		return orderContents.size() > 0? true : false;
 
 	}
 	

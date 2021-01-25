@@ -53,8 +53,6 @@ public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
 	
 	@Override
 	public boolean checkIfInBasket(Product theProduct, Order theOrder) {
-		Product product = theProduct;
-		Order order = theOrder;
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		

@@ -11,7 +11,7 @@ import com.chrisenoch.onlineshop.entity.Product;
 	 void save(OrderContents theOrderContents);
 	 void delete(OrderContents theOrderContents);
 	 void delete(Product theProduct);
-	 boolean checkIfInBasket(Product theProduct, Order theOrder);
+	 public List<OrderContents>  getOrderContentsByproductAndOrder(Product theProduct, Order theOrder); 
 	 List<OrderContents> getOrderContents(Order theOrder);
 	 OrderContents getOrderContent(Product theProduct);
 	 OrderContents getOrderContent(int id);

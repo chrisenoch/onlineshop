@@ -42,7 +42,7 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 	}
 	
 	@Override
-	public boolean checkIfInBasket(Product theProduct, Order theOrder) {
+	public List<OrderContents>  getOrderContentsByproductAndOrder(Product theProduct, Order theOrder) {
 		
 		int productId = theProduct.getId();
 		int orderId = theOrder.getId();
@@ -60,7 +60,9 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 			
 			List<OrderContents> theOrderContents = theQuery.getResultList();
 		
-			return theOrderContents.size() > 0? true : false;
+			return theOrderContents;
+			
+			//return theOrderContents.size() > 0? true : false;
 			 
 	}
 	

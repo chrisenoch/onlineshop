@@ -80,17 +80,21 @@ public class AddressDaoImpl implements AddressDao {
 	public void setDefaultAddress(int addressId, int userId) throws NoResultException {		
 		Session currentSession = sessionFactory.getCurrentSession();
 			
-			String sqlQuery = "update Address set defaultAddress=false where user.iD = " + userId; 
+			String sqlQuery = "update Address set defaultAddress=false where user.iD=:userId"; 
 			
 			Query theQuery = 
 					currentSession.createQuery(sqlQuery);
 			
+			theQuery.setParameter("userId", userId);
+			
 			theQuery.executeUpdate();
 			
-			String sqlQuery2 = "update Address set defaultAddress=true where id = " + addressId; 
+			String sqlQuery2 = "update Address set defaultAddress=true where id=:addressId"; 
 			
 			Query theQuery2 = 
 					currentSession.createQuery(sqlQuery2);
+			
+			theQuery2.setParameter("addressId", addressId);
 			
 			theQuery2.executeUpdate();
 			

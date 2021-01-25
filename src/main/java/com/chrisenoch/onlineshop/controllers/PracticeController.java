@@ -15,7 +15,7 @@ import com.chrisenoch.onlineshop.dao.jpa.PracticeDaoJPAImpl;
 import com.chrisenoch.onlineshop.entity.Order;
 import com.chrisenoch.onlineshop.entity.User;
 
-@Controller
+//@Controller
 @RequestMapping("/practice")
 public class PracticeController {
 	
