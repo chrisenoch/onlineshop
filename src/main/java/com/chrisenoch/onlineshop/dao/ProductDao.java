@@ -14,8 +14,5 @@ import com.chrisenoch.onlineshop.entity.Product;
 	 void delete(Product theProduct);
 	 List<Product> getAllProducts();
 	 Product getProduct(int productId) throws NoResultException;
-	 Map<Product, Integer> getProductsInBasketByMostRecent(List<OrderContents> list);
-	 int reduceStock(int productId, int quantityToReduce) throws Exception;
-	 int addStock(int productId, int quantityToAdd) throws Exception;
 
 }

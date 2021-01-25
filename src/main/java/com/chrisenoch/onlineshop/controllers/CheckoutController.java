@@ -179,8 +179,7 @@ public class CheckoutController {
 	
 	private void assignNewOrderContentsAccordingToStock(Order theOrder,
 			Map<Product, Map<Integer, Integer>> updatedOrderContentsAccordingToStock) {
-		//theOrder.setOrderContents(null); //remove associations so orderContents won't be resaved by cascade
-		theOrder.getOrderContents().clear();
+		theOrder.getOrderContents().clear(); //remove associations so orderContents won't be resaved by cascade
 		
 		//only delete orderContents if they have stock problems			
 		for (Entry<Product, Map<Integer, Integer>>  map : updatedOrderContentsAccordingToStock.entrySet()) {

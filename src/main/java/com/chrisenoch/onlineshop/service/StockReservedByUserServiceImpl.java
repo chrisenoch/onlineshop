@@ -16,13 +16,13 @@ import com.chrisenoch.onlineshop.entity.User;
 public class StockReservedByUserServiceImpl implements StockReservedByUserService{
 	
 	private StockReservedByUserDao stockReservedByUserDao;
-	private ProductDao productDao;
+	private ProductService productService;
 
 	@Autowired
 	public StockReservedByUserServiceImpl(StockReservedByUserDao stockReservedByUserDao,
-			ProductDao productDao) {
+			ProductService productService) {
 		this.stockReservedByUserDao = stockReservedByUserDao;
-		this.productDao = productDao;
+		this.productService = productService;
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 
 		stockReservedByUserDao.save(stockReservedByUser);
 		
-		productDao.reduceStock(productId, quantityToReduce);
+		productService.reduceStock(productId, quantityToReduce);
 		
 	}
 	
@@ -64,7 +64,7 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 		stockReservedByUserDao.delete(stockReservedByUser);
 
 		//add stock quantity to Product
-		productDao.addStock(product.getId(), quantity);
+		productService.addStock(product.getId(), quantity);
 		
 		
 	}
