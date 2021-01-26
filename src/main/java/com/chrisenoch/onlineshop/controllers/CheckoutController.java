@@ -89,11 +89,9 @@ public class CheckoutController {
 			//Summary of changes made to order-> this is checked for and displayed in jsp page
 			redirectAttributes.addFlashAttribute("updatedOrderContentsDueToStockShortage", updatedOrderContentsAccordingToStock);
 			
-			return "redirect:shop/basket";
+			return "redirect:/shop/basket";
 					
 		}  
-		
-		System.out.println("debugging is orderContents null no probs stock " + theOrder.getOrderContents());
 		
 		//Get total price
 		setPaymentAndPriceDetails(session, model, orderService);

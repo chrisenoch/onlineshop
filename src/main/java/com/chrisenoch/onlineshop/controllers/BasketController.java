@@ -54,7 +54,6 @@ public class BasketController {
 			
 		} 
 		
-		
 		User theUser = (User)session.getAttribute("user");
 		int userId = (int)session.getAttribute("userId");
 		
