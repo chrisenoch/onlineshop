@@ -64,11 +64,9 @@ public class OrderServiceImpl implements OrderService {
 			theOrder.setProcessed(false);
 			
 			save(theOrder);
-			System.out.println("Order saved");
 			
 			
 		} else if (fetchedOrders.size() == 1) {
-			System.out.println("debug, fetchedorders == 1");
 			//Add fetchedOrder to current session
 			theOrder = fetchedOrders.get(0);
 			
@@ -82,11 +80,6 @@ public class OrderServiceImpl implements OrderService {
 	return theOrder;	
 	}
 	
-//	@Override
-//	@Transactional
-//	public int totalOrderContentsPrice(int orderId) {
-//		return orderDao.totalOrderContentsPrice(orderId);
-//	}
 	
 	@Override
 	@Transactional

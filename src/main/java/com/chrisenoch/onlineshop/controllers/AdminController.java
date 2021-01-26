@@ -62,20 +62,3 @@ public class AdminController {
 	}
 
 }
-
-/*
- * @GetMapping("/members/{id}") 
-	public String showMembers(@PathVariable("id") int id, Model model) {
-		double total = usersService.getTotalMembers(); //This is double so division calcualtion is correct. If not, int division will chop off decimal value.
-		int recordsPerPage = 10;		
-		List<User> users = usersService.getMembers(id, recordsPerPage);
-		int numOfPages = (int)Math.ceil(total/recordsPerPage); 
-	
-		model.addAttribute("members", users);
-		model.addAttribute("total", total);
-		model.addAttribute("numOfPages ", numOfPages );
-			
-		return "members";
-	}
-	
-	*/

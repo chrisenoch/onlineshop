@@ -61,7 +61,6 @@ public class OrderContentsDaoJPAImpl implements OrderContentsDao {
 	@Override
 	public List<OrderContents> getOrderContents(Order theOrder) {
 		
-		System.out.println("Inside getOrderContents hibernate");
 		int orderId = theOrder.getId();
 
 			String sqlQuery = "from OrderContents where order.id=:orderId order by id"; 
@@ -93,8 +92,6 @@ public class OrderContentsDaoJPAImpl implements OrderContentsDao {
 	@Override
 	public void delete(Product theProduct) {
 		int productId = theProduct.getId();
-		
-		System.out.println("productId here: " + productId);
 
 			Query theQuery = 
 					eF.createQuery("delete from OrderContents where product.id = :productId");

@@ -20,7 +20,7 @@ import com.chrisenoch.onlineshop.entity.Product;
 import com.chrisenoch.onlineshop.entity.StockUtil;
 
 @SpringBootTest
-class FuntestappApplicationTests {
+class OnlineshopApplicationTests {
 
 	@Mock
 	Product product1;

@@ -74,7 +74,6 @@ public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
 	
 	@Override
 	public List<OrderContents> getOrderContents(Order theOrder) {
-		System.out.println("Inside getOrderContents criteria");
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		CriteriaBuilder cb = currentSession.getCriteriaBuilder();
@@ -122,8 +121,6 @@ public class OrderContentsDaoImpl_JPA_Criteria implements OrderContentsDao {
 		criteriaDelete.where(cb.equal(root.get("product"), theProduct));
 		 
 		currentSession.createQuery(criteriaDelete).executeUpdate();
-
-		System.out.println("productId here: " + theProduct.getId());
 	
 	}
 

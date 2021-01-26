@@ -74,10 +74,7 @@ public class ChargeController {
         chargeRequest.setCurrency(Currency.EUR);
         Charge charge = paymentsService.charge(chargeRequest);
         
-        int amount = chargeRequest.getAmount();
-        
-       
-        System.out.println("Printing charge status: " + charge.getStatus());
+        int amount = chargeRequest.getAmount();        
       
      if (charge.getStatus().equals("succeeded")){
     	 	
@@ -86,8 +83,6 @@ public class ChargeController {
      	 	int addressId = Integer.parseInt(request.getParameter("addressId"));
      	 	int orderId = Integer.parseInt(request.getParameter("orderId"));
      	 	double shippingCost = Double.parseDouble(request.getParameter("shippingCost"));
-     	 	System.out.println("Print shippingCost: "+ shippingCost);
-     	 	System.out.println("Print orderId: "+ orderId);
      	 	
      	    LocalDateTime shipDate = getNextWorkingDay();
      	    
@@ -98,7 +93,6 @@ public class ChargeController {
      	    DeliveryInformation theDeliveryInformation = new DeliveryInformation
      	    		(shipDate, predictedArrivalDate, false, theAddress);
      	      
-     	    System.out.println("Print chargeId: " + charge.getId());
      	    
      	    Checkout checkout = new Checkout(amount,shippingCost, theOrder, theDeliveryInformation, charge.getId());
      	    

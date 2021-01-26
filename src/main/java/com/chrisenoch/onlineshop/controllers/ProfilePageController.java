@@ -43,7 +43,6 @@ public class ProfilePageController {
 	@GetMapping({"", "/{username}"})
 	public String showProfilePage(Model model, RedirectAttributes redirectAttributes, 
 			HttpSession session, @PathVariable("username") Optional<String> username) {
-		System.out.println("Inside get method"); 
 			
 		User theUser;
 		
@@ -52,11 +51,9 @@ public class ProfilePageController {
 	
 				try {
 					theUser = usersService.getUserByUsername(fetchedUser);
-					System.out.println("user email " + theUser.getEmail());
 						
 				} catch (NoResultException exc) {
 					redirectAttributes.addFlashAttribute("nouserfound", "nouserfound");
-					System.out.println("noresult exception found here");
 					return "redirect:/showProfilePage/searcherror";
 					
 				} catch (Exception exc) {
@@ -67,13 +64,10 @@ public class ProfilePageController {
 				
 				//test if user entered as path var is current logged in user. If so, display more options on profile page (upload picture option)
 				User currentUser = (User)session.getAttribute("user");
-				System.out.println("owner test " + currentUser + " " + theUser.getUsername() );
 				if (theUser.getUsername().equals(currentUser.getUsername()) ) {
 					return "redirect:/showProfilePage";
 					//model.addAttribute("isProfileOwner", true);
 				}
-				//check if owner is same as pathvar
-				//add model attruibute is owner if this is the case
 				
 		
 	    } else {
@@ -105,10 +99,7 @@ public class ProfilePageController {
 		   }
 		 
 		usersService.uploadProfilePicture(newProfilePicture, request, theUser
-				, "C:\\Users\\chris\\pictures\\onlineshop\\profile\\" + theUser.getiD() + ".png");
-		
-		System.out.println("Inside post method");
-		System.out.println("test method for Chris " + newProfilePicture.getTest());
+				, "C:\\Users\\chris\\pictures\\onlineshop\\profile\\" + theUser.getiD() + ".png");	
 	
 	   //redirect so that refreshing page does not resubmit values
 	   return "redirect:/showProfilePage";
@@ -125,9 +116,8 @@ public class ProfilePageController {
 	
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
-	   binder.setAllowedFields("profileImage", "language"); //Improve code - this is wrong
-	   //binder.setAllowedFields("profileImage",
-   //"productImage"); //Improve code - this is wrong
+	   binder.setAllowedFields("profileImage"); //Review code
+
 	}
 	
 

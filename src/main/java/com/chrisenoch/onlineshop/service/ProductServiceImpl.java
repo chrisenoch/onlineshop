@@ -73,13 +73,9 @@ public class ProductServiceImpl implements ProductService {
 		
 		Product product = productDao.getProduct(productId);
 		
-		int currentStockQuantity = product.getStock();
-		System.out.println("currentStockQuantity " + currentStockQuantity);
-		System.out.println(" quantityToReduce " +  quantityToReduce);
-		
+		int currentStockQuantity = product.getStock();	
 		
 		int newStockQuantity = currentStockQuantity - quantityToReduce;
-		System.out.println(" newStockQuantity  " +  newStockQuantity );
 		
 		if (newStockQuantity < 0) {
 			throw new Exception ("You cannot reduce the stock level by an amount higher than "

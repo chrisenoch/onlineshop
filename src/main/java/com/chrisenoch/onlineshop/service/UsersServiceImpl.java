@@ -85,7 +85,6 @@ private BCryptPasswordEncoder passwordEncoder;
 
 		// give user default role of "employee"
 		user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
-		System.out.println("testing roles on user " + user.getRoles());
 
 		 // save user in the database
 		usersDAO.save(user);
@@ -126,7 +125,6 @@ private BCryptPasswordEncoder passwordEncoder;
 		   String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 		         
 		      if (profileImage!=null && !profileImage.isEmpty()) {
-		    	  System.out.println("debugging root dir" + rootDirectory);
 		    	  
 		          try {
 		        	  profileImage.transferTo(new File

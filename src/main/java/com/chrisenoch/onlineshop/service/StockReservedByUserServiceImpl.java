@@ -115,7 +115,6 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 				
 				OrderContents oC = new OrderContents(theOrder, product, map2.getValue());
 				orderContentsService.save(oC);
-				System.out.println("debugging is orderContents null inside loop" + theOrder.getOrderContents());
 			}				
 		}
 		

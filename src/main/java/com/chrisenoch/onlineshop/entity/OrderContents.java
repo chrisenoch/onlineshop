@@ -34,9 +34,6 @@ public class OrderContents {
 	@Column(name="quantity")
 	private int quantity;
 	
-	
-	//private HashMap<Product, Integer> productCount; //Not needed
-	
 	public OrderContents() {
 	}
 	

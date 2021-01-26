@@ -69,7 +69,6 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 	@Override
 	public List<OrderContents> getOrderContents(Order theOrder) {
 		
-		System.out.println("Inside getOrderContents hibernate");
 		int orderId = theOrder.getId();
 		
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -112,7 +111,6 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 		int productId = theProduct.getId();
 		
 		Session currentSession = sessionFactory.getCurrentSession();
-		System.out.println("productId here: " + productId);
 
 			Query theQuery = 
 					currentSession.createQuery("delete from OrderContents where product.id = :productId");

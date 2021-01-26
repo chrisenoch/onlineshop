@@ -109,13 +109,7 @@ public class Order {
 		}
 		
 		total = orderContents.stream().mapToInt(x -> x.getQuantity()).sum();
-		//Optional<OrderContents> totalTest = orderContents.stream().max(Comparator.comparing(x->x.getQuantity()));
-		
-		/*
-		 * for (OrderContents oC : orderContents) {
-			total += oC.getQuantity();
-		}
-		 */
+
 		return total;
 	}
 	

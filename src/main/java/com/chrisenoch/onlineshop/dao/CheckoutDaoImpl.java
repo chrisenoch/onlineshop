@@ -26,7 +26,6 @@ public class CheckoutDaoImpl implements CheckoutDao {
 				
 				//Set isProcesseed to true in Order table so if user continues shopping, the items will be associated with a new order.
 				int orderId = theCheckout.getOrder().getId();
-				System.out.println("orderId in hibernate method");
 				
 				String sqlQuery = "update Order set isProcessed=true where id=:orderId"; 
 				
