@@ -130,10 +130,8 @@ public class AccountController {
 		if (addressId.isPresent()) {
 			Address address = addressService.getAddress(addressId.get());
 			
-			//add addressId to link on addresses page as variable
 			model.addAttribute("address", address);
 			
-			//return form with prepopulated values
 		} else {
 			Address address = new Address();
 			
@@ -182,7 +180,7 @@ public class AccountController {
 	private void setUserAndAddressInfo(Address address, HttpSession session) {
 		User theUser = (User)session.getAttribute("user");
 		address.setUser(theUser);
-		address.setDefaultAddress(false); //Improve code_: Give user option to mark added address as default
+		address.setDefaultAddress(false); //Improve code: Give user option to mark added address as default?
 		address.setDateLastUsed(LocalDateTime.now());
 	}
 	

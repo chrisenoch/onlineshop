@@ -86,7 +86,6 @@ private BCryptPasswordEncoder passwordEncoder;
 		// give user default role of "employee"
 		user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
 
-		 // save user in the database
 		usersDAO.save(user);
 	}
 

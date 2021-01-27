@@ -40,7 +40,7 @@ public class ProfilePage {
 		this.profileImage = profileImage;
 	}
 	
-	public ProfilePage() {  //Improve code: Take out no arg constructor. This makes it hard for a profile to be constructed which is not associated to a user
+	public ProfilePage() {  //Improve code: Take out no arg constructor. This makes it hard for a profile to be constructed which is not associated with a user
 	}
 	
 	

@@ -56,7 +56,6 @@ public class OrderServiceImpl implements OrderService {
 		
 		Order theOrder;
 		if (fetchedOrders.size() == 0) {
-			System.out.println("debug, fetchedorders == 0");
 			theOrder = new Order();
 			
 			theOrder.setUser(theUser);

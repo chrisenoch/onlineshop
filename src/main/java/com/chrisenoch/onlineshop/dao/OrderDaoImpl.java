@@ -67,7 +67,6 @@ public class OrderDaoImpl implements OrderDao {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 
-			//String sqlQuery = "from Order where user.iD=" + userId + " and isProcessed=" + false; 
 			String sqlQuery = "from Order where user.iD=:userId  and isProcessed=:false"; 
 		
 			Query<Order> theQuery = 
@@ -75,7 +74,7 @@ public class OrderDaoImpl implements OrderDao {
 												Order.class);
 			
 			theQuery.setParameter("userId", userId);
-			theQuery.setParameter("false", false); //Debugging. Check don't need to add false as a string.
+			theQuery.setParameter("false", false); 
 			
 			List<Order> theOrders = theQuery.getResultList();
 	

@@ -25,8 +25,7 @@ public class CheckoutDaoImpl implements CheckoutDao {
 				Session currentSession = sessionFactory.getCurrentSession();
 				
 				//Set isProcesseed to true in Order table so if user continues shopping, the items will be associated with a new order.
-				int orderId = theCheckout.getOrder().getId();
-				
+				int orderId = theCheckout.getOrder().getId();			
 				String sqlQuery = "update Order set isProcessed=true where id=:orderId"; 
 				
 				Query theQuery = 

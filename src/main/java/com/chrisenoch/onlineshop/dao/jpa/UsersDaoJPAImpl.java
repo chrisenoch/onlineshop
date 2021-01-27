@@ -79,9 +79,7 @@ public class UsersDaoJPAImpl implements UsersDao{
 			
 			User theUser;
 			theUser = theQuery.getSingleResult();
-			//customers.forEach(System.out::println); //debugging
-			
-			// return the results		
+	
 			return theUser;
 		} catch(Exception exc) {
 			throw exc;

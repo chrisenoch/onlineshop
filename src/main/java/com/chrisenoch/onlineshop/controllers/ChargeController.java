@@ -59,17 +59,14 @@ public class ChargeController {
 			return "result";
 		}
 		else {
-			//If page accessed directly do not show paymentSuccess/payment error page
+			//If page accessed directly do not show payment success/payment error page
 			return "redirect:/shop";
 		}
 	}
     
 	@PostMapping("/charge")
-    public String charge(ChargeRequest chargeRequest, Model model
-    		,RedirectAttributes redirectAttributes, HttpServletRequest request,
-    		HttpSession session)
-      throws StripeException {
-    	System.out.println("Entered charge method - post mapping");
+    public String charge(ChargeRequest chargeRequest, Model model ,RedirectAttributes redirectAttributes
+    		, HttpServletRequest request, HttpSession session) throws StripeException {
         chargeRequest.setDescription("Example charge");
         chargeRequest.setCurrency(Currency.EUR);
         Charge charge = paymentsService.charge(chargeRequest);
@@ -79,7 +76,6 @@ public class ChargeController {
      if (charge.getStatus().equals("succeeded")){
     	 	
     	 try {
-    		//Get info from request params
      	 	int addressId = Integer.parseInt(request.getParameter("addressId"));
      	 	int orderId = Integer.parseInt(request.getParameter("orderId"));
      	 	double shippingCost = Double.parseDouble(request.getParameter("shippingCost"));
@@ -96,7 +92,7 @@ public class ChargeController {
      	    
      	    Checkout checkout = new Checkout(amount,shippingCost, theOrder, theDeliveryInformation, charge.getId());
      	    
-     	    //Save checkout object (which also sets isProcessed to true in orders table)
+     	    //Save Checkout object (which also sets isProcessed to true in orders table).
      	    checkoutService.save(checkout);
      	    
      	    //delete stock reserved for this user
@@ -111,8 +107,8 @@ public class ChargeController {
     		 redirectAttributes.addFlashAttribute("paymentSuccess", "paymentSucceededButCheckoutNotSaved");
     		 System.out.println(exc.getMessage());
     		 System.out.println(exc.getStackTrace());
-    		 //TO DO: Notify admin. If a user has paid and order does not get stored in database, user will not receive order
-    		 //email the user id and the order details from Stripe.
+    		 //To do: Notify admin. If a user has paid and order does not get stored in database, user will not receive order
+    		 //To do: Email the user id and the order details from Stripe.
 
     		 return "redirect:/charge"; 
     	 } 
@@ -132,7 +128,7 @@ public class ChargeController {
 		//retrieve stockReservedByUser 
 		List<StockReservedByUser> stockReservedByUser = stockReservedByUserService.getStockReservedByUser(theUser);
 		
-		//loop through and updatestock, and delete the stockReservedByUser objects
+		//loop through, update stock, and delete the StockReservedByUser objects
 		for (StockReservedByUser stock : stockReservedByUser) {
 			stockReservedByUserService.shiftStockFromStockReservedByUserToProduct(stock);
 		

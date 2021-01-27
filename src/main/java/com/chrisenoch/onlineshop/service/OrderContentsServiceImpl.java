@@ -55,8 +55,7 @@ public class OrderContentsServiceImpl implements OrderContentsService {
 		List<OrderContents> list = orderContentsDao.getOrderContents(theOrder);
 		
 		int sum = list.stream().mapToInt(x -> x.getProduct().getPrice() * x.getQuantity()).sum();
-
-		// return the results		
+		
 		return sum; //return price in cents 
 		
 		

@@ -46,7 +46,7 @@ public class AdminController {
 			return "redirect:/members?page=1";
 		}
 		
-		double total = usersService.getTotalMembers(); //This is double so division calcualtion is correct. If not, int division will chop off decimal value.
+		double total = usersService.getTotalMembers(); //This is double to ensure division calculation is correct. If not, int division will chop off decimal value.
 		int recordsPerPage = 5;	//refactor this	
 		
 		int startIndex = (page - 1) * recordsPerPage;

@@ -44,7 +44,6 @@ public class ShopController {
 		User theUser = (User)session.getAttribute("user");
 		int userId = (int)session.getAttribute("userId");
 		Order theOrder = orderService.getCorrectOrder(theUser, userId);
-		int orderId = theOrder.getId();
 		
 		if(!id.isPresent()) { //If user has not just added product to basket
 
@@ -58,37 +57,25 @@ public class ShopController {
 			model.addAttribute("numberOfItemsInCart", numberOfItemsInCart);
 			
 			return "products";
-		} else { //If user has added a product to basket. Add product to basket and display products
+		} else { //If user has added a product to basket, add product to basket and display products
 			
 			int requestId = id.get();
 			
 			//Send products so they can be displayed
 			getAllProducts(model);
-	
-			System.out.println("productId for basket received: " + id);
 			
 			//get product that is to be added to basket	
 			Product theProduct = productService.getProduct(requestId);
 			
-			
+			//If already in basket...
 			if(orderContentsService.checkIfInBasket(theProduct, theOrder)) {
-				//redirect to checkout page with custom message
-				//Do check using JSTL on checkout page to see if already in basket.
-				//Add var to model here so it can be checked using jstl on checkout page
-				
+
 				return "already-in-basket";
 			} else {
-				//default quantity is 1. User can update quanity by viewing the basket.	
+				//default quantity is 1. User can update quantity by viewing the basket.	
 				OrderContents orderContents = new OrderContents(theOrder, theProduct, 1); 
 				orderContentsService.save(orderContents);
 			}
-	
-			
-			//calculate how many order_contents there are
-			int numberOfItemsInCart = orderContentsService.getOrderContents(theOrder).size();
-					
-			//add above information to model so can display basket count
-			//model.addAttribute("numberOfItemsInCart", numberOfItemsInCart);
 
 			return "redirect:/shop";
 		}
@@ -100,16 +87,8 @@ public class ShopController {
 	
 	@GetMapping("/product") 
 	public String displayProduct(Model model,HttpSession session, @RequestParam("id") int id) {
-		//Get user from database
-		//User theUser = (User)session.getAttribute("user");
-		
-			//get product via request attribute
 			Product theProduct = productService.getProduct(id);
 			model.addAttribute("product", theProduct);
-				
-			//Need to display how many items(order_contents) in cart. Quantity decided at checkout.
-			//So why have quantity in order_contents class? - Because this will be updated when quantity updated.
-			//Can't add same product to basket.
 
 			return "product";
 

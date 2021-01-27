@@ -35,7 +35,6 @@ public class RoleDaoImpl implements RoleDao {
 		
 		try {
 			theRole = theQuery.getSingleResult();
-			System.out.println("Testing roles " + theRole);
 		} catch (Exception e) {
 			theRole = null;
 		}

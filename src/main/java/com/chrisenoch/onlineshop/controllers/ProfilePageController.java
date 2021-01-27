@@ -66,7 +66,6 @@ public class ProfilePageController {
 				User currentUser = (User)session.getAttribute("user");
 				if (theUser.getUsername().equals(currentUser.getUsername()) ) {
 					return "redirect:/showProfilePage";
-					//model.addAttribute("isProfileOwner", true);
 				}
 				
 		

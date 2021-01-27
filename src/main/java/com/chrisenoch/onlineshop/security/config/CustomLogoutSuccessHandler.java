@@ -31,17 +31,10 @@ public class CustomLogoutSuccessHandler implements LogoutSuccessHandler {
 		
 		//get user from session
 		String userName = authentication.getName();
-
 		User user = usersService.getUserByUsername(userName);
-		
-		// get session
-//		HttpSession session = request.getSession();
-//		User user = (User)session.getAttribute("user");
 	
-		//retrieve stockreserevdbyuser
 		List<StockReservedByUser> stockReservedByUser = stockReservedByUserService.getStockReservedByUser(user);
 		
-		//activate method
 		for ( StockReservedByUser sRBU: stockReservedByUser ) {	
 			try {
 				stockReservedByUserService.shiftStockFromStockReservedByUserToProduct(sRBU);

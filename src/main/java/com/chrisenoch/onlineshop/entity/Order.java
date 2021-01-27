@@ -92,12 +92,8 @@ public class Order {
 		this.isProcessed = isProcessed;
 	}
 	
-	//Should this be int or souble?
 	public double shippingCost(int quantityOfOrderContents) {
-		System.out.println("Quantity of orderContents: " + quantityOfOrderContents);
-		System.out.println("entered shippingCost method - Order");
 		double shippingCost = quantityOfOrderContents == 0? 0 : 3.0 + (quantityOfOrderContents -1) * 0.50;
-		System.out.println("leaving shippingCost method" + shippingCost);
 		return shippingCost;
 	}
 	

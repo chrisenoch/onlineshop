@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 							+ " ON users.id=user_id INNER JOIN role ON role_id=role.id WHERE users.username=?");
 
 			/*
-			 * // add our users for in memory authentication
+			 * // add users for in memory authentication
 			
 			UserBuilder users = User.withDefaultPasswordEncoder();
 			

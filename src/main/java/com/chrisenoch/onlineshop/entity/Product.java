@@ -25,7 +25,7 @@ public class Product {
 	private String brand;
 	
 	@Column(name="price")
-	private int price; //price stored as value * 100 in database. getProduct method converts price to real value
+	private int price; //price stored as value * 100 in database. getPriceFormatted method converts price to real value and formats it correctly.
 	
 	@Column(name="stock")
 	private int stock;

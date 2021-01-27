@@ -51,7 +51,6 @@ public class OrderDaoJPAImpl implements OrderDao {
 	@Override
 	public List<Order> getUnprocessedOrders(int userId) {
 
-			//String sqlQuery = "from Order where user.iD=" + userId + " and isProcessed=" + false; 
 			String sqlQuery = "from Order where user.iD=:userId  and isProcessed=:false"; 
 		
 			TypedQuery<Order> theQuery = 

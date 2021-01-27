@@ -51,10 +51,10 @@
 				
 				<p>
 				<c:if test="${product.stock != 0}">
-					<strong>Availble units in stock </strong> : ${product.stock}
+					<strong>Available units in stock </strong> : ${product.stock}
 				</c:if>
 				<c:if test="${product.stock == 0}">
-					<strong>Availble units in stock </strong> : Out of stock
+					<strong>Available units in stock </strong> : Out of stock
 				</c:if>
 				
 				</p>

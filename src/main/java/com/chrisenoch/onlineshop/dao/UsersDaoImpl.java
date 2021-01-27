@@ -76,7 +76,7 @@ public class UsersDaoImpl implements UsersDao{
 	public User getUserByUsername(String username) throws NoResultException {		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//Try stmt in case invalid username entered or other problem.
+		//Try statement in case invalid username entered or other problem.
 		try {
 			String sqlQuery = "from Users where username=:username"; 
 
@@ -88,9 +88,7 @@ public class UsersDaoImpl implements UsersDao{
 			
 			User theUser;
 			theUser = theQuery.getSingleResult();
-			//customers.forEach(System.out::println); //debugging
 			
-			// return the results		
 			return theUser;
 		} catch(Exception exc) {
 			throw exc;

@@ -86,7 +86,7 @@ public class CheckoutController {
 			
 			stockReservedByUserService.assignNewOrderContentsAccordingToStock(theOrder, updatedOrderContentsAccordingToStock);
 			
-			//Summary of changes made to order-> this is checked for and displayed in jsp page
+			//Summary of changes made to order-> this is checked for and displayed in basket.jsp page
 			redirectAttributes.addFlashAttribute("updatedOrderContentsDueToStockShortage", updatedOrderContentsAccordingToStock);
 			
 			return "redirect:/shop/basket";
@@ -96,34 +96,30 @@ public class CheckoutController {
 		//Get total price
 		setPaymentAndPriceDetails(session, model, orderService);
 		
-		//Temporarily hold the selected stock for the user until the user completes/cancels the payment	
+		//Temporarily hold the selected stock for the user until the user completes/cancels the payment/logs out.
 		//For each OrderContents shiftStockFromProductToStockReservedByUser
 		 stockReservedByUserService.shiftStockFromProductToStockReservedByUserByOrderContents(theUser, orderContents);
         
-        //Get default address if there is one. If not get last address used. If not, do not set model attribute
-		//and user automatically redirected to manageaddresses in order to add address
         List<Address> addresses = addressService.getAllAddresses(userId);
 
+        //Get default address if there is one. If not get last address used. If not, do not set model attribute
+		//and user automatically redirected to manageaddresses in order to add address
         getPreferredAddress(addresses, addressService, model);
         
         return "checkout";
    	
     }
-       // model.addAttribute("currency", ChargeRequest.Currency.EUR);
 
 	@PostMapping("/checkoutchanged")
     public String checkoutChanged(Model model,
     		HttpSession session, @ModelAttribute("address")Address theAddress) throws Exception { 
-		 	
-		System.out.println("debug checkoutcontroller checkoutchanged");
 		
 		int userId = setPaymentAndPriceDetails(session, model, orderService);
 		
-		//get address by addressid
 		int id = theAddress.getId();
 		Address addressToAdd = addressService.getAddress(id);
 		addressToAdd.setDateLastUsed(LocalDateTime.now());
-		addressService.save(addressToAdd); //save address with updated date so next time user is at checkout getPreferredAddress method can fetch address based on last address used.
+		addressService.save(addressToAdd); //Save address with updated date so next time user is at checkout getPreferredAddress method can fetch address based on last address used.
 		
 		model.addAttribute("address", addressToAdd);
 
@@ -131,13 +127,14 @@ public class CheckoutController {
    	
  	}
     
-	private int setPaymentAndPriceDetails (HttpSession session, Model model //Improve code: Rename method
+	private int setPaymentAndPriceDetails (HttpSession session, Model model 
 			, OrderService orderService) throws Exception {
 		User theUser = (User)session.getAttribute("user");
 		int userId = (int)session.getAttribute("userId");
+		
+		//Get Order - If user visits basket page before shop page, there may not be an order session available
 		Order theOrder = orderService.getCorrectOrder(theUser, userId);
 		double shippingCost = theOrder.shippingCost(theOrder.getOrderContentsTotal());
-		//Get order id from session - If user visits basket page before shop page, there may not be an order session available
 		
 		int totalOrderContentsPriceInCents = orderContentsService.totalOrderContentsPrice(theOrder); 
 		int totalOrderPriceInCents = (int) (totalOrderContentsPriceInCents + (shippingCost * 100));

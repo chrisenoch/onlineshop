@@ -45,7 +45,7 @@ public class BasketController {
 	public String displayBasket(Model model, HttpSession session
 			, @RequestParam("del") Optional<Integer> productId) throws Exception {
 		
-		//If del present, delete order_contents from order
+		//If del present, delete OrderContents from Order
 		if(productId.isPresent()) {
 			
 			Product theProduct = productService.getProduct(productId.get());
@@ -59,7 +59,7 @@ public class BasketController {
 		
 		Order theOrder = orderService.getCorrectOrder(theUser, userId);
 		double shippingCost = theOrder.shippingCost(theOrder.getOrderContentsTotal());
-		//Get order id from session - If user visits basket page before shop page, there may not be an order session available
+		//Get Order from session - If user visits basket page before shop page, there may not be an order session available
 		double totalOrderContentsPriceInCents = orderContentsService.totalOrderContentsPrice(theOrder); 
 		double totalOrderContentsPrice = totalOrderContentsPriceInCents/100;
 		double totalOrderPrice = totalOrderContentsPrice + shippingCost;
@@ -73,7 +73,7 @@ public class BasketController {
 		model.addAttribute("totalOrderPrice", totalOrderPriceFormatted);
 		model.addAttribute("orderContents", theOrder.getOrderContents().size()); //If null, user gets a message saying basket is empty in checkout.jsp
 		
-		List<OrderContents> orderContentsList = orderContentsService.getOrderContents(theOrder); //Don't get via Order because need to have control of the order in which the dataabse records are fetched.
+		List<OrderContents> orderContentsList = orderContentsService.getOrderContents(theOrder); //Don't get via Order because need to have control of the order in which the database records are fetched.
 		Collections.reverse(orderContentsList);
 		model.addAttribute("orderContentsList", orderContentsList);
 

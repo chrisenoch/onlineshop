@@ -62,7 +62,6 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 		for (OrderContents oC : orderContents) {
 			int stockQuantityToDelete = oC.getQuantity();
 			Product product = oC.getProduct();
-			//deleteStockByProductId	
 			
 			StockReservedByUser stockReservedByUser = new StockReservedByUser(product, 
 					stockQuantityToDelete, theUser);
@@ -77,16 +76,12 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 	@Transactional
 	public void shiftStockFromStockReservedByUserToProduct(StockReservedByUser stockReservedByUser)
 			throws Exception {
-		//get quantity	
 		int quantity = stockReservedByUser.getQuantity();	
-		
-		//get product
+
 		Product product = stockReservedByUser.getProduct();
-		
-		//delete stockReservedByUser
+
 		stockReservedByUserDao.delete(stockReservedByUser);
 
-		//add stock quantity to Product
 		productService.addStock(product.getId(), quantity);
 		
 		
@@ -105,7 +100,7 @@ public class StockReservedByUserServiceImpl implements StockReservedByUserServic
 
 		//loop over map and add new order contents to database		
 		for ( Entry<Product, Map<Integer, Integer>> map : updatedOrderContentsAccordingToStock.entrySet()) {
-			Product product = (Product) map.getKey();
+			Product product = map.getKey();
 			
 			for ( Entry<Integer, Integer> map2 : map.getValue().entrySet()) {
 				//If available stock is zero, do not save new OrderContents in database

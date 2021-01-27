@@ -61,8 +61,6 @@ public class OrderContentsDaoImpl implements OrderContentsDao {
 			List<OrderContents> theOrderContents = theQuery.getResultList();
 		
 			return theOrderContents;
-			
-			//return theOrderContents.size() > 0? true : false;
 			 
 	}
 	

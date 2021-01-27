@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Temporay landing page</title>
+	<title>Temporary landing page</title>
 </head>
 
 <body>
