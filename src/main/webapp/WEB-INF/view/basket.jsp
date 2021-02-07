@@ -89,7 +89,8 @@
 			
 			<c:if test = "${updatedOrderContentsDueToStockShortage != null}">
 			
-			<p style="color:red;font-weight: bold;">Unfortunately our stock levels have changed since you added the items to your basket.
+			<p style="color:red;">Unfortunately our stock levels have changed since you added the items to your basket.
+			<br>
 			We have suggested a change to your order to reflect our current stock levels:
 			</p>
 			
@@ -110,9 +111,11 @@
 			    </c:forEach>
 			</c:forEach>
 			
-			<form action="${pageContext.request.contextPath}/checkout">
+			<form action="${pageContext.request.contextPath}/checkout" class="action-button">
 		    <input type="submit" value="Continue to checkout"/>
 			</form>
+			<br>
+			<hr>
 			</c:if>
 			
 			
@@ -121,7 +124,10 @@
 					
 							
 							<p class="product-name"><c:out value="${entry.product.name}"/> </p>
-						
+							
+							<img src="<c:url value="${entry.product.pictureUrl}"></c:url>"
+							alt="image" />
+							
 		
 							<div class ="description-small">${entry.product.description}</div> 		
 
@@ -170,11 +176,9 @@
 			<p>Shipping Cost: EUR ${shippingCost}</p>
 			<p>Total: EUR ${totalOrderPrice}</p>
 			
-		
+	
 			
-			
-			<form action="${pageContext.request.contextPath}/checkout">
-			
+			<form action="${pageContext.request.contextPath}/checkout" class="action-button">		
 		    <input type="submit" value="Go to checkout"/>
 			</form>
 	

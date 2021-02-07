@@ -21,6 +21,7 @@ h2{
 
 }
 
+
 body {
     background-color: #f7f7f8;;
     color: #555;
@@ -32,6 +33,10 @@ body {
     margin:0;
 }
 
+img{
+	width:7%;
+}
+
 p{
     
 }
@@ -40,6 +45,18 @@ p{
     margin: 0% 5%;
     
     /*Could I use inherit here?*/
+}
+
+
+.action-button input[type=submit]{
+	color:white;
+    background-color: #9147ff;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 17px;
+  
+    
 }
 
 a:link,
@@ -128,7 +145,6 @@ transform: translateY(-30%);
 
 .description-small {
 	font-size:16px;
-	color:red;
 	padding-right: 40%;
 }
 
