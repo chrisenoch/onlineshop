@@ -1,0 +1,145 @@
+/* Purple color: color: #9147ff; */
+
+*{
+  
+    box-sizing: border-box;
+}
+
+.row {
+   text-align: center;
+}
+
+h1{
+    display:inline;
+   
+  
+}
+
+h2{    
+    text-align: left;
+    font-size: 300%;
+
+}
+
+body {
+    background-color: #f7f7f8;;
+    color: #555;
+    font-family: 'Inter', 'Lato', 'Arial', sans-serif;  
+    font-size: 18px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    padding:0;
+    margin:0;
+}
+
+p{
+    
+}
+
+.main-body{
+    margin: 0% 5%;
+    
+    /*Could I use inherit here?*/
+}
+
+a:link,
+a.visited{
+    color:#3f3f3f;
+    background-color: #e8e8ed;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 17px;
+    text-shadow: 0.0px 0px 0.5px;
+    
+}
+
+a:hover,
+a:active
+
+{
+    background-color: #ddd;
+    border-bottom: 2px solid #9147ff;
+}
+
+
+.topnav a:hover,
+.topnav a:active,
+.topnav a:visited
+{
+border-bottom: 3px solid #9147ff;
+}
+
+
+
+.topnav {
+  overflow: hidden;
+    width:100%;
+  background-color: #efeff0;
+padding-left: 5%;
+padding-right: 5%;
+    padding-bottom:0.5%;
+    border-bottom: 0.2px solid #d3d3d4;
+    color: #9147ff
+  
+}
+
+.topnav li{
+   list-style: none;
+  float:right;
+      
+    text-shadow: 0.1px 0.1px;
+    font-weight: 500;  
+}
+
+.topnav nav ul li:nth-child(6) {
+    float: left;
+    position: relative;
+transform: translateY(-30%);
+    text-shadow: 1px 0px 0.5px ;
+    
+    
+      
+}
+
+.topnav nav ul li:nth-child(7) {
+    text-shadow: 0.1px 0.1px;
+    font-size: 110%;
+    font-weight: 500;   
+} 
+
+.topnav a {
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 110%;
+ font-weight: 500;    
+}
+
+
+
+.product-name
+{
+	font-weight:700;
+}
+
+
+
+
+.discount {
+display: inline-block;
+  background: yellow;
+  text-transform: uppercase;
+  padding: 0.2em 0.8em;
+  box-shadow: 0 0 8px rgba(red, 0.2);
+  transform: rotate(-8deg);
+    color:black;
+}
+
+.ib span {
+  display: inline-block;
+}
+
+
+
