@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,7 +22,7 @@
                 <li><a href="#Profile Page">Profile Page</a></li>
                 
                 
-                  <li><h1><i>Company name</i></h1></li>
+                  <li><h1><i>Shopzilla</i></h1></li>
                
               
                 
@@ -37,17 +35,22 @@
 
 </header>
 
+    <div class="main-body">
+<h2>Systems Page</h2>
+    
 
-
+    
 <p>
 	We have our annual holiday Caribbean cruise coming up. Register now!
 	<br>
 	Keep this trip a secret, don't tell the regular employees LOL :-)
 </p>
-  
-<hr>
+  <br>
+
 
 <a href="${pageContext.request.contextPath}/">Back to Profile Page</a>
+        
+</div>
 
 </body>
 

@@ -43,8 +43,8 @@ p{
 }
 
 a:link,
-a.visited{
-    color:#3f3f3f;
+a:visited{
+	color:black;
     background-color: #e8e8ed;
     text-decoration: none;
     border-radius: 25px;
@@ -59,7 +59,7 @@ a:active
 
 {
     background-color: #ddd;
-    border-bottom: 2px solid #9147ff;
+   
 }
 
 
@@ -69,6 +69,8 @@ a:active
 {
 border-bottom: 3px solid #9147ff;
 }
+
+
 
 
 
@@ -124,7 +126,11 @@ transform: translateY(-30%);
 	font-weight:700;
 }
 
-
+.description-small {
+	font-size:16px;
+	color:red;
+	padding-right: 40%;
+}
 
 
 .discount {

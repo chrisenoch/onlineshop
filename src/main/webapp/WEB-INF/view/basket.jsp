@@ -42,6 +42,8 @@
 </header>
 <div class = "main-body">
 
+
+
 <c:choose>
 	    <c:when test="${(orderContents == 0 || orderContents == null) &&
 	     (updatedOrderContentsDueToStockShortage == null)}">	
@@ -54,7 +56,7 @@
 	        
 			 <%-- Refactor code below--%>
 			<h2>Shopping basket</h2>
-			<hr>
+			
 	        <p style="color:red;font-weight: bold;">Unfortunately our stock levels have changed since you added the items to your basket.
 			
 			</p>
@@ -83,7 +85,7 @@
 	    </c:when> 
 	    <c:otherwise>
 	        <h2>Shopping basket</h2>
-			<hr>
+			
 			
 			<c:if test = "${updatedOrderContentsDueToStockShortage != null}">
 			
@@ -113,33 +115,18 @@
 			</form>
 			</c:if>
 			
-			<table> 
-			<thead>
-				<tr>
-					<th> </th>
-					<th>Quantity</th>
-					<th></th>
-				</tr>
-			</thead>
 			
 					<c:forEach var="entry" items= "${orderContentsList}">
 					
-						<tr>
+					
 							
-							<td class="product-name"><c:out value="${entry.product.name}"/> </td>
-							<td><a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a></td>
-		
-						</tr> 
-						<tr>
-							<td>${entry.product.description}</td> 
-							<td><c:out value="${entry.quantity}"/></td>			
-						</tr> 
-						<tr>
-						<td class="product-price"><c:out value="${entry.product.priceFormatted}"/></td> 
-						</tr>
+							<p class="product-name"><c:out value="${entry.product.name}"/> </p>
 						
-						<tr>
-						<td>
+		
+							<div class ="description-small">${entry.product.description}</div> 		
+
+						<p class="product-price"><c:out value="${entry.product.priceFormatted}"/></p> 
+
 						<form action="" method="POST">
 						<input type="hidden"
 									   name="id"
@@ -160,6 +147,10 @@
 									</c:choose>
 								</c:forEach>
 							</select>
+							<a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+							
+							<br><br>
+							<hr>
 		
 						
 						
@@ -170,17 +161,10 @@
 									   name="${_csrf.parameterName}"
 									   value="${_csrf.token}" />
 						</form>
-						</td>
-						</tr>			
+
 						</c:forEach>
 		
-							
-			</table>
-			
-			
 		
-		
-			<hr>
 			<br>
 			<p>Subtotal: EUR ${totalOrderContentsPrice}</p>
 			<p>Shipping Cost: EUR ${shippingCost}</p>
@@ -198,6 +182,10 @@
 	    </c:otherwise>
 	</c:choose>
 </div>
+
+
+
+
 </body>
 
 </html>
