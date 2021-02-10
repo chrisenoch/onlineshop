@@ -50,7 +50,7 @@ p{
 }
 
 img{
-	width:8%;
+	
 }
 
 .clearfix:after{
@@ -224,11 +224,16 @@ transform: translateY(-30%);
 
 .product-name
 {
+	font-size: 115%;
 	font-weight:700;
+	padding-left:10%;
+	width:80%;
+	margin-bottom:0.5%;
 }
 
 .product-image{
 	float:left;
+	width:8%;
 
 }
 
@@ -237,8 +242,13 @@ transform: translateY(-30%);
 	float:left;
 	font-size:14px;
 	padding-right: 40%;
+	padding-left:2%;
 	padding-bottom: 1%;
 	float:left;
+}
+
+ul{
+	padding-left:2%;
 }
 
 .discount {

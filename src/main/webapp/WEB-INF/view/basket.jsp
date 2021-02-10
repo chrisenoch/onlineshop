@@ -123,11 +123,12 @@
 					
 					<div class = "clearfix">
 							
-						<p class="product-name"><c:out value="${entry.product.name}"/> </p>
+						
 						
 						<img class = "product-image" src="<c:url value="${entry.product.pictureUrl}"></c:url>"
 						alt="image" />
 						
+						<p class="product-name"><c:out value="${entry.product.name}"/> </p>
 	
 						<div class ="description-small">${entry.product.description}</div> 		
 
