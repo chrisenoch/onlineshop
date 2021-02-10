@@ -150,7 +150,7 @@
 		
 			<hr>
 			<br>
-			<p>Subtotal: EUR ${totalOrderContentsPrice}</p>
+			<p>Subtotal: EUR ${totalOrderContentsPrice} €</p>
 			<p>Shipping Cost: EUR ${shippingCost}</p>
 			<p>Total: EUR ${totalOrderPrice}</p>
 			
