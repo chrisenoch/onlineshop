@@ -125,7 +125,7 @@
 							
 							<p class="product-name"><c:out value="${entry.product.name}"/> </p>
 							
-							<img src="<c:url value="${entry.product.pictureUrl}"></c:url>"
+							<img class = "product-image" src="<c:url value="${entry.product.pictureUrl}"></c:url>"
 							alt="image" />
 							
 		
@@ -154,6 +154,7 @@
 								</c:forEach>
 							</select>
 							<br>
+							
 							<a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
 							
 							<br><br>
