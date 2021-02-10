@@ -235,8 +235,9 @@ transform: translateY(-30%);
 .description-small {
 	width:80%;
 	float:left;
-	font-size:12px;
+	font-size:14px;
 	padding-right: 40%;
+	padding-bottom: 1%;
 	float:left;
 }
 
