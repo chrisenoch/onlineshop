@@ -120,16 +120,14 @@
 			
 			
 					<c:forEach var="entry" items= "${orderContentsList}">
-					
-					
 							
-							<p class="product-name"><c:out value="${entry.product.name}"/> </p>
-							
-							<img class = "product-image" src="<c:url value="${entry.product.pictureUrl}"></c:url>"
-							alt="image" />
-							
-		
-							<div class ="description-small">${entry.product.description}</div> 		
+						<p class="product-name"><c:out value="${entry.product.name}"/> </p>
+						
+						<img class = "product-image" src="<c:url value="${entry.product.pictureUrl}"></c:url>"
+						alt="image" />
+						
+	
+						<div class ="description-small">${entry.product.description}</div> 		
 
 						<p class="product-price"><c:out value="${entry.product.priceFormatted}"/></p> 
 
@@ -141,27 +139,28 @@
 						<!-- <hidden path="id" value ="${entry.id}" />  -->
 						
 						
-							<select name="quantity" class="select-css" onchange=' this.form.submit(); '>
-								<c:forEach var="i" begin = "0" end = "10"  varStatus="loop">
-									<c:choose> 
-									  <c:when test="${entry.quantity == loop.index}">
-									    <option value="${loop.index}" selected>&nbsp;&nbsp;&nbsp;${loop.index}</option>
-									  </c:when>
-									  <c:otherwise>
-									    <option value="${loop.index}">&nbsp;&nbsp;&nbsp;${loop.index}</option>
-									  </c:otherwise>
-									</c:choose>
-								</c:forEach>
-							</select>
-							<br>
-							
-							<a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
-							
-							<br><br>
-							<hr>
-		
+						<select name="quantity" class="select-css" onchange=' this.form.submit(); '>
+							<c:forEach var="i" begin = "0" end = "10"  varStatus="loop">
+								<c:choose> 
+								  <c:when test="${entry.quantity == loop.index}">
+								    <option value="${loop.index}" selected>&nbsp;&nbsp;&nbsp;${loop.index}</option>
+								  </c:when>
+								  <c:otherwise>
+								    <option value="${loop.index}">&nbsp;&nbsp;&nbsp;${loop.index}</option>
+								  </c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+						<br>
+						
+						<a class="clearfix" href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+						
+						<br><br>
 						
 						
+						
+						
+						<hr>
 						
 						<!-- Manually add tokens-->
 		
