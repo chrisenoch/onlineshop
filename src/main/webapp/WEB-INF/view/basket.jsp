@@ -120,6 +120,8 @@
 			
 			
 					<c:forEach var="entry" items= "${orderContentsList}">
+					
+					<div class = "clearfix">
 							
 						<p class="product-name"><c:out value="${entry.product.name}"/> </p>
 						
@@ -151,16 +153,8 @@
 								</c:choose>
 							</c:forEach>
 						</select>
-						<br>
+
 						
-						<a class="clearfix" href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
-						
-						<br><br>
-						
-						
-						
-						
-						<hr>
 						
 						<!-- Manually add tokens-->
 		
@@ -168,6 +162,14 @@
 									   name="${_csrf.parameterName}"
 									   value="${_csrf.token}" />
 						</form>
+						
+						<br>
+						
+						<a class="clearfixx" href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+						
+						</div>
+						<hr>
+						
 
 						</c:forEach>
 		

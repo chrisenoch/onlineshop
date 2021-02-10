@@ -1,220 +1,258 @@
 /* Purple color: color: #9147ff; */
-* {
-	box-sizing: border-box;
+
+*{
+  
+    box-sizing: border-box;
 }
 
 .row {
-	text-align: center;
+   text-align: center;
 }
+
 
 /*  ------------------------ */
 /*  Reusable elements          */
 /*  ------------------------  */
+
+
 body {
-	background-color: #f7f7f8;;
-	color: #555;
-	font-family: 'Inter', 'Lato', 'Arial', sans-serif;
-	font-size: 18px;
-	text-rendering: optimizeLegibility;
-	overflow-x: hidden;
-	padding: 0;
-	margin: 0;
+    background-color: #f7f7f8;;
+    color: #555;
+    font-family: 'Inter', 'Lato', 'Arial', sans-serif;  
+    font-size: 18px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    padding:0;
+    margin:0;
 }
 
-h1 {
-	display: inline;
+h1{
+    display:inline;
+   
+  
 }
 
-h2 {
-	text-align: left;
-	font-size: 300%;
+h2{    
+    text-align: left;
+    font-size: 300%;
+
 }
 
-p {
-	
+
+p{
+    
 }
 
-.main-body {
-	margin: 0% 5%;
-
-	/*Could I use inherit here?*/
+.main-body{
+    margin: 0% 5%;
+    
+    /*Could I use inherit here?*/
 }
 
-img {
-	width: 8%;
+img{
+	width:8%;
 }
 
-.clearfix:after {
-	content: ".";
-	visibility: hidden;
-	display: block;
-	height: 0;
-	clear: both;
+.clearfix:after{
+	content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }
 
-a:link, a:visited {
-	color: black;
-	background-color: #e8e8ed;
-	text-decoration: none;
-	border-radius: 25px;
-	padding: 10px;
-	font-size: 17px;
-	text-shadow: 0.0px 0px 0.5px;
+
+a:link,
+a:visited{
+		
+	color:black;
+    background-color: #e8e8ed;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 17px;
+    text-shadow: 0.0px 0px 0.5px;
+    float:left;
+
+    
 }
 
-a:hover, a:active {
-	background-color: #ddd;
+a:hover,
+a:active
+
+{
+    background-color: #ddd;
+   
 }
 
-.action-button input[type=submit] {
-	color: white;
-	background-color: #9147ff;
-	text-decoration: none;
-	border-radius: 25px;
-	padding: 10px;
-	font-size: 17px;
+
+.action-button input[type=submit]{
+	color:white;
+    background-color: #9147ff;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 17px;
+    
 }
 
 .select-css {
-	display: block;
-	font-size: 16px;
-	font-weight: 700;
-	color: #444;
-	line-height: 1.3;
-	padding: 3px 30px 3px 3px;
-	box-sizing: border-box;
-	margin: 0;
-	border: 1px solid #aaa;
-	box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
-	border-radius: .5em;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	background-color: #fff;
-	/* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 3px 30px 3px 3px;
+
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
     for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
     
   */
-	background-image:
-		url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-		linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
-	background-repeat: no-repeat, repeat;
-	/* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
-	background-position: right .7em top 50%, 0 0;
-	/* icon size, then gradient */
-	background-size: .65em auto, 100%;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right .7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: .65em auto, 100%;
 }
 /* Hide arrow icon in IE browsers */
 .select-css::-ms-expand {
-	display: none;
+  display: none;
 }
 /* Hover style */
 .select-css:hover {
-	border-color: #888;
+  border-color: #888;
 }
 /* Focus style */
 .select-css:focus {
-	border-color: #aaa;
-	/* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-	box-shadow: 0 0 0 3px -moz-mac-focusring;
-	color: #222;
-	outline: none;
+  border-color: #aaa;
+  /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222; 
+  outline: none;
 }
 
 /* Set options to normal weight */
 .select-css option {
-	font-weight: normal;
+  font-weight:normal;
 }
+
 
 /* Disabled styles */
 .select-css:disabled, .select-css[aria-disabled=true] {
-	color: graytext;
-	background-image:
-		url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-		linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  color: graytext;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
 }
 
 .select-css:disabled:hover, .select-css[aria-disabled=true] {
-	border-color: #aaa;
+  border-color: #aaa;
 }
+
+
+
 
 /*  ------------------------ */
 /*  Nav bar             */
 /*  ------------------------  */
-.topnav a:hover, .topnav a:active, .topnav a:visited {
-	border-bottom: 3px solid #9147ff;
+
+.topnav a:hover,
+.topnav a:active,
+.topnav a:visited
+{
+border-bottom: 3px solid #9147ff;
 }
+
 
 .topnav {
-	overflow: hidden;
-	width: 100%;
-	background-color: #efeff0;
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-bottom: 0.5%;
-	border-bottom: 0.2px solid #d3d3d4;
-	color: #9147ff
+  overflow: hidden;
+    width:100%;
+  background-color: #efeff0;
+padding-left: 5%;
+padding-right: 5%;
+    padding-bottom:0.5%;
+    border-bottom: 0.2px solid #d3d3d4;
+    color: #9147ff
+  
 }
 
-.topnav li {
-	list-style: none;
-	float: right;
-	text-shadow: 0.1px 0.1px;
-	font-weight: 500;
+.topnav li{
+   list-style: none;
+  float:right;
+      
+    text-shadow: 0.1px 0.1px;
+    font-weight: 500;  
 }
 
 .topnav nav ul li:nth-child(6) {
-	float: left;
-	position: relative;
-	transform: translateY(-30%);
-	text-shadow: 1px 0px 0.5px;
+    float: left;
+    position: relative;
+transform: translateY(-30%);
+    text-shadow: 1px 0px 0.5px ;
+  
 }
 
 .topnav nav ul li:nth-child(7) {
-	text-shadow: 0.1px 0.1px;
-	font-size: 110%;
-	font-weight: 500;
-}
+    text-shadow: 0.1px 0.1px;
+    font-size: 110%;
+    font-weight: 500;   
+} 
 
 .topnav a {
-	color: #333;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 110%;
-	font-weight: 500;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 110%;
+ font-weight: 500;    
 }
 
 /*  ------------------------ */
 /*  Products                 */
 /*  ------------------------  */
-.product-name {
-	font-weight: 700;
+
+.product-name
+{
+	font-weight:700;
 }
 
-.product-image {
-	float: left;
+.product-image{
+	float:left;
+
 }
 
 .description-small {
-	width: 80%;
-	float: left;
-	font-size: 14px;
+	width:80%;
+	float:left;
+	font-size:12px;
 	padding-right: 40%;
-	float: left;
+	float:left;
 }
 
 .discount {
-	display: inline-block;
-	background: yellow;
-	text-transform: uppercase;
-	padding: 0.2em 0.8em;
-	box-shadow: 0 0 8px rgba(red, 0.2);
-	transform: rotate(-8deg);
-	color: black;
+display: inline-block;
+  background: yellow;
+  text-transform: uppercase;
+  padding: 0.2em 0.8em;
+  box-shadow: 0 0 8px rgba(red, 0.2);
+  transform: rotate(-8deg);
+    color:black;
 }
 
 .ib span {
-	display: inline-block;
+  display: inline-block;
 }
+
+
+
