@@ -141,18 +141,19 @@
 						<!-- <hidden path="id" value ="${entry.id}" />  -->
 						
 						
-							<select name="quantity" onchange=' this.form.submit(); '>
+							<select name="quantity" class="select-css" onchange=' this.form.submit(); '>
 								<c:forEach var="i" begin = "0" end = "10"  varStatus="loop">
 									<c:choose> 
 									  <c:when test="${entry.quantity == loop.index}">
-									    <option value="${loop.index}" selected>${loop.index}</option>
+									    <option value="${loop.index}" selected>&nbsp;&nbsp;&nbsp;${loop.index}</option>
 									  </c:when>
 									  <c:otherwise>
-									    <option value="${loop.index}">${loop.index}</option>
+									    <option value="${loop.index}">&nbsp;&nbsp;&nbsp;${loop.index}</option>
 									  </c:otherwise>
 									</c:choose>
 								</c:forEach>
 							</select>
+							<br>
 							<a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
 							
 							<br><br>
