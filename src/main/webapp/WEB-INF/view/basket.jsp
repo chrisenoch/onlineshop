@@ -17,29 +17,13 @@
 </head>
 <body>
 
+<c:set var="currentPage" value="basket"/>
+
 <header>  
-    <div class = "topnav">     
-	   <nav>
-			<ul> 
-                <li> <a href="#LAbout us">About us</a></li>
-                <li><a href="#Login/Logout">Login/Logout</a></li>
-                <li><a href="#Basket">Basket</a></li>
-                <li><a href="${pageContext.request.contextPath}/shop">Shop</a></li>
-                <li><a href="#Profile Page">Profile Page</a></li>
-                
-                
-                  <li><h1><i>Company name</i></h1></li>
-               
-              
-                
-			</ul>      	
-	</nav> 
-	</div>
-    
-    
-
-
+	<%@ include file="navigation-bar.jsp" %>   
 </header>
+
+
 <div class = "main-body">
 
 

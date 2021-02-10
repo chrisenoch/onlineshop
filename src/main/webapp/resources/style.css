@@ -195,7 +195,7 @@ padding-right: 5%;
     font-weight: 500;  
 }
 
-.topnav nav ul li:nth-child(6) {
+.topnav nav ul li:last-child {
     float: left;
     position: relative;
 transform: translateY(-30%);
