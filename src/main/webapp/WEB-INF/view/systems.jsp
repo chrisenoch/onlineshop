@@ -7,13 +7,14 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/style.css">
 	<title>SYSTEMS Home Page</title>
 </head>
 
 <body>
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
     <div class="container">
-      <a href="index.html" class="navbar-brand">LoopLAB</a>
+      <a href="index.html" class="navbar-brand">Company name</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
