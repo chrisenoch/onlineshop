@@ -5,7 +5,16 @@
 <html lang="en">
 
 <head>
-
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/style.css">
 <title>Login Page</title>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -22,13 +31,17 @@
 </head>
 
 <body>
+<header>
+<c:set var = "currentPage" value = "login"/>
+<%@ include file="navigation-bar.jsp" %> 
+</header>
 
-	<div class="home-inner container">
+	<div class="home-inner container mt-5">
 		<div class="row">
 
 			<div class="col-lg-4 ">
 
-				<div class="card text-center card-form bg-light mt-5	">
+				<div class=" px-3 py-2 card text-center card-form bg-light mt-5	">
 
 					<div class="card-body">
 						<h3>Sign In</h3>

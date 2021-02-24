@@ -32,12 +32,14 @@
 						active</c:if>
 						">Basket</a></li>
 
+
+		<c:if test="${currentPage != 'login'}">
+
 				<li class="nav-item"><a
 					href="${pageContext.request.contextPath}/checkout"
 					class="nav-link <c:if test="${currentPage == 'checkout'}">
 						active</c:if>
 						">Checkout</a></li>
-
 
 				<li class="nav-item"><a
 					href="javascript: document.logoutForm.submit()" role="menuitem"
@@ -47,6 +49,10 @@
 					action="${pageContext.request.contextPath}/logout" method="POST">
 					<input hidden="true" type="submit" value="Logout" />
 				</form:form>
+				
+				</c:if>
+				
+				
 
 			</ul>
 		</div>
