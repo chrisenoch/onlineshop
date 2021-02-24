@@ -12,14 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/style.css">
 	
 	<title>Members Directory</title>
 </head>
 
 <body>
+<header>
+<%@ include file="navigation-bar.jsp" %> 
+</header>
 
-<div class="container">
+<div class="container py-5 mt-5">
 	<h3>Members Directory</h3>
 	
 	<hr>
