@@ -16,25 +16,14 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/style.css">
 <title>Login Page</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Reference Bootstrap files -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/style.css">
 
 </head>
 
 <body>
-<header>
-<c:set var = "currentPage" value = "login"/>
-<%@ include file="navigation-bar.jsp" %> 
-</header>
+	<header>
+		<c:set var="currentPage" value="login" />
+		<%@ include file="navigation-bar.jsp"%>
+	</header>
 
 	<div class="home-inner container mt-5">
 		<div class="row">
@@ -77,15 +66,13 @@
 
 							<!-- User name -->
 							<div class="form-group">
-								 <input type="text"
-									name="username" placeholder="username"
+								<input type="text" name="username" placeholder="username"
 									class="form-control form-control-lg" placeholder="Username">
 							</div>
 
 							<!-- Password -->
 							<div class="form-group">
-								 <input type="password"
-									name="password" placeholder="password"
+								<input type="password" name="password" placeholder="password"
 									class="form-control form-control-lg">
 							</div>
 
@@ -107,7 +94,8 @@
 					<div class="d-inline col text-center">
 						<a
 							href="${pageContext.request.contextPath}/register/showRegistrationForm"
-							class="  btn btn-primary mt-3" role="button">Register New User</a>
+							class="  btn btn-primary mt-3" role="button">Register New
+							User</a>
 					</div>
 				</div>
 
