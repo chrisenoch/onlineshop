@@ -59,6 +59,7 @@ public class Address {
 	@Column(name="county_state_region_province")
 	private String countyOrState;
 	
+	@NotNull(message="is required")
 	@Pattern(regexp="^[A-Za-z0-9]{5,6}", message="must be 5 or 6 characters/digits") //Improve code: Check this
 	@Column(name="postcode")
 	private String postCode;

@@ -67,13 +67,13 @@
 							<!-- User name -->
 							<div class="form-group">
 								<input type="text" name="username" placeholder="username"
-									class="form-control form-control-lg" placeholder="Username">
+									class="form-control" placeholder="Username">
 							</div>
 
 							<!-- Password -->
 							<div class="form-group">
 								<input type="password" name="password" placeholder="password"
-									class="form-control form-control-lg">
+									class="form-control">
 							</div>
 
 							<!-- Login/Submit Button -->

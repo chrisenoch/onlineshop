@@ -60,7 +60,7 @@
 									<div class="form-group h6">
 										<div class="col-lg-10 ">
 											<form:input id="profileImage" path="profileImage" type="file"
-												class="form:input-large" />
+												class="form-control-file" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -89,6 +89,8 @@
 			<a href="?language=de">German</a>
 		</div>
 	</section>
+	
+
 
 
 
