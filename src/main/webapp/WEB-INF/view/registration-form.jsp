@@ -31,23 +31,23 @@
 	</header>
 
 	<!-- EXPLORE SECTION -->
-	<section id="explore-section" class=" text-muted py-5 mt-5">
-		<div class="container">
-			<div class="row">
+	<section id="explore-section" class="text-muted py-5 mt-5">
 
-				<div class="card-body col-12">
+
+		<div class=" container">
+			<div class="row  col-5">
+				<div class="card-body border border-dark bg-light" >
 					<div class="card-title h2">Register New User</div>
-
 
 
 					<!-- Registration Form -->
 					<form:form
 						action="${pageContext.request.contextPath}/register/processRegistrationForm"
-						modelAttribute="regUser">
+						modelAttribute="regUser" id="regUser">
 
 						<!-- Place for messages: error, alert etc ... -->
 						<div class="form-group">
-							<div class="col-xs-12">
+							<div class="col">
 								<div>
 
 									<!-- Check for registration error -->
@@ -72,7 +72,7 @@
 
 							<form:errors path="userName" cssClass="error" />
 							<form:input path="userName" placeholder="username (*)"
-								class="form-control w-25" />
+								class="form-control " />
 						</div>
 
 						<!-- Password -->
@@ -109,75 +109,74 @@
 
 							<form:errors path="email" cssClass="error" />
 							<form:input path="email" placeholder="email (*)"
-								class="form-control  w-25" />
-						</div>
-						
-						</div>
-						<div class="row">
-
-						<!-- Register Button -->
-						<div class="form-group">
-							<div class="col-sm-6 controls">
-								<button type="submit" class="btn btn-primary d-flex-inline">Register</button>
-							</div>
+								class="form-control" style="width:100%;"/>
 						</div>
 
 					</form:form>
-
-					<div class="form-group">
-						<form:form class="d-flex-inline"
-							action="${pageContext.request.contextPath}/showMyLoginPage"
-							method="GET">
-							<input type="submit" value="Back to login" />
-						</form:form>
-					</div>
 					
-					</div>
+						<!-- Register Button -->
+			<div class="form-group	d-inline ">
+					<button type="submit" class="btn btn-primary w-0" form="regUser">Register</button>
+			</div>
+
+			<form:form class="d-inline ml-n5"
+				action="${pageContext.request.contextPath}/showMyLoginPage"
+				method="GET">
+				<input type="submit" value="Back to login" class="d-inline" />
+			</form:form>
 
 				</div>
 
 			</div>
 
+		
+
+
+
+
+
 		</div>
+
+
+
+
+
 
 	</section>
 
 
 
 
+
+	<div class="d-flex justify-content-center">
+		<div class="p-2">Flex item 1</div>
+		<div class="p-2 ">Flex item 2</div>
+		<div class="p-2 ">Flex item 3</div>
+	</div>
+	<div class="d-flex flex-row-reverse">
+		<div class="p-2">Flex item 1</div>
+		<div class="p-2">Flex item 2</div>
+		<div class="p-2">Flex item 3</div>
+	</div>
+
+
+
+
+
 	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<form>
-						<div class="form-group"">
-							<label for="exampleInputEmail1">Email address</label> <input
-								type="email" class="form-control w-25" id="exampleInputEmail1"
-								aria-describedby="emailHelp" placeholder="Enter email">
-							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
-						</div>
-						<button type="submit" class="btn btn-primary w-25">Submit</button>
-					</form>
-				</div>
 
-				<div class="col">
-					<form>
-						<div class="form-group"">
-							<label for="exampleInputEmail1">Email address</label> <input
-								type="email" class="form-control w-25" id="exampleInputEmail1"
-								aria-describedby="emailHelp" placeholder="Enter email">
-							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
-						</div>
-						<button type="submit" class="btn btn-primary w-25">Submit</button>
-					</form>
-				</div>
-
-			</div>
-
+		<div>
+			<form style="float: left;">
+				<label for="fname">First name:</label><br> <input type="text"
+					id="fname" name="fname"><br> <label for="lname">Last
+					name:</label><br> <input type="text" id="lname" name="lname">
+			</form>
+			<form style="float: left;">
+				<label for="fname">First name:</label><br> <input type="text"
+					id="fname" name="fname"><br> <label for="lname">Last
+					name:</label><br> <input type="text" id="lname" name="lname">
+			</form>
 		</div>
-
 
 	</section>
 
