@@ -110,22 +110,49 @@
 
 
 					<c:forEach var="entry" items="${orderContentsList}">
-						<div class="row mb-3" >
+						<div class="row mb-5">
 							<div class="col-auto">
 								<img src="<c:url value="${entry.product.pictureUrl}"></c:url>"
 									class="img-fluid" alt="image" style="width: 7rem;">
 							</div>
 
 							<div class="col-8 d-flex flex-column">
-								
-								<p><c:out value="${entry.product.name}" /></p>
-								
-								${entry.product.description}
-										
-								<p class="mt-auto"><a href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a></p>
-										
 
-						
+								<p>
+									<c:out value="${entry.product.name}" />
+								</p>
+
+								${entry.product.description}
+
+
+								<div class="d-flex mt-auto	">			
+									<form action="" method="POST" class="mr-2" >
+										<input type="hidden" name="id" value="${entry.id}"/>
+
+										<!-- <hidden path="id" value ="${entry.id}" />  -->
+
+
+										<select name="quantity" onchange=' this.form.submit(); '>
+											<c:forEach var="i" begin="0" end="10" varStatus="loop">
+												<c:choose>
+													<c:when test="${entry.quantity == loop.index}">
+														<option value="${loop.index}" selected>${loop.index}</option>
+													</c:when>
+													<c:otherwise>
+														<option value="${loop.index}">${loop.index}</option>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+										</select>
+										<!-- Manually add tokens-->
+										<input type="hidden" name="${_csrf.parameterName}"
+											value="${_csrf.token}" />
+									</form>
+									
+									<a class="text-muted" href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+								</div>
+
+
 							</div>
 
 							<div class="col">
@@ -166,25 +193,29 @@
 
 		</div>
 	</section>
-	
-	
-	<div class="d-flex align-items-start flex-column bg-light" style="height: 200px;">
-  <div class="mb-auto p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-</div>
 
-<div class="d-flex align-items-end flex-column" style="height: 200px;">
-  <div class="p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-  <div class="mt-auto p-2">Flex item</div>
-</div>
-	
-	
-	
-	
-	
-	
+
+	<div class="d-flex align-items-start flex-column bg-light"
+		style="height: 200px;">
+		<div class="mb-auto p-2">Flex item</div>
+		<div class="p-2">Flex item</div>
+		<div class="p-2">Flex item</div>
+	</div>
+
+	<div class="d-flex align-items-end flex-column" style="height: 200px;">
+		<div class="p-2">Flex item</div>
+		<div class="p-2">Flex item</div>
+		<div class="mt-auto p-2">Flex item</div>
+	</div>
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
