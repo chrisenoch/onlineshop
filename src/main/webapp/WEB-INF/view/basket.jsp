@@ -26,7 +26,7 @@
 	</header>
 
 	<section id="explore-section" class="text-muted py-5 mt-5">
-		<div class="container">
+		<div class="container ">
 
 			<c:choose>
 				<c:when
@@ -105,17 +105,19 @@
 
 
 					<c:forEach var="entry" items="${orderContentsList}">
-						<div class="row">
+						<div class="row mb-3">
 							<div class="col-auto">
 								<img src="<c:url value="${entry.product.pictureUrl}"></c:url>"
 									class="img-fluid" alt="image" style="width: 7rem;">
 							</div>
 
-							<div class="col">
+							<div class="col-8">
 								<p>
 									<c:out value="${entry.product.name}" />
 								</p>
-								<p>${entry.product.description}</p>
+								
+								${entry.product.description}
+								
 								<form action="" method="POST">
 									<input type="hidden" name="id" value="${entry.id}" />
 
