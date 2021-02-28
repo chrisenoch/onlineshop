@@ -115,41 +115,50 @@
 								<p>
 									<c:out value="${entry.product.name}" />
 								</p>
-								
+
 								${entry.product.description}
-								
-								<form action="" method="POST">
-									<input type="hidden" name="id" value="${entry.id}" />
-
-									<!-- <hidden path="id" value ="${entry.id}" />  -->
-
-
-									<select name="quantity" onchange=' this.form.submit(); '>
-										<c:forEach var="i" begin="0" end="10" varStatus="loop">
-											<c:choose>
-												<c:when test="${entry.quantity == loop.index}">
-													<option value="${loop.index}" selected>${loop.index}</option>
-												</c:when>
-												<c:otherwise>
-													<option value="${loop.index}">${loop.index}</option>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</select>
-									<!-- Manually add tokens-->
-									<input type="hidden" name="${_csrf.parameterName}"
-										value="${_csrf.token}" />
-								</form>
-
-								<p>
-									<a
-										href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
-								</p>
 
 
 
+								<div class="row">
+									<div class="col-auto">
+
+										<form action="" method="POST">
+											<input type="hidden" name="id" value="${entry.id}" />
+
+											<!-- <hidden path="id" value ="${entry.id}" />  -->
 
 
+											<select name="quantity" onchange=' this.form.submit(); '>
+												<c:forEach var="i" begin="0" end="10" varStatus="loop">
+													<c:choose>
+														<c:when test="${entry.quantity == loop.index}">
+															<option value="${loop.index}" selected>${loop.index}</option>
+														</c:when>
+														<c:otherwise>
+															<option value="${loop.index}">${loop.index}</option>
+														</c:otherwise>
+													</c:choose>
+												</c:forEach>
+											</select>
+											<!-- Manually add tokens-->
+											<input type="hidden" name="${_csrf.parameterName}"
+												value="${_csrf.token}" />
+										</form>
+
+
+									</div>
+
+									<div class="col-auto">
+										<p>
+											<a
+												href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+										</p>
+
+									</div>
+
+
+								</div>
 
 
 							</div>
