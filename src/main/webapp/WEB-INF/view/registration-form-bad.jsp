@@ -35,9 +35,11 @@
 
 
 		<div class=" container">
-			<div class="card" style="width: 25rem;">
-				<h5 class="card-header bg-primary text-white">Register New User</h5>
-				<div class="card-body border border-primary bg-light">
+			<div class="row  col-5 ">
+				<div class="card-body border border-primary bg-primary" >
+					<div class="card-title h2">Register New User</div>
+			</div>
+			<div class="row col-12 ">
 
 					<!-- Registration Form -->
 					<form:form
@@ -71,21 +73,21 @@
 
 							<form:errors path="userName" cssClass="error" />
 							<form:input path="userName" placeholder="username (*)"
-								class="form-control " style="width: 21rem;"/>
+								class="form-control " />
 						</div>
 
 						<!-- Password -->
 						<div class="form-group">
 							<form:errors path="password" cssClass="error" />
 							<form:password path="password" placeholder="password (*)"
-								class="form-control"  style="width: 21rem;"/>
+								class="form-control  w-25" />
 						</div>
 
 						<!-- Confirm Password -->
 						<div class="form-group">
 							<form:errors path="matchingPassword" cssClass="error" />
 							<form:password path="matchingPassword"
-								placeholder="confirm password (*)" class="form-control" style="width: 21rem;"/>
+								placeholder="confirm password (*)" class="form-control  w-25" />
 						</div>
 
 
@@ -93,14 +95,14 @@
 						<div class="form-group">
 							<form:errors path="firstName" cssClass="error" />
 							<form:input path="firstName" placeholder="first name (*)"
-								class="form-control" style="width: 21rem;"/>
+								class="form-control  w-100" />
 						</div>
 
 						<!-- Last name -->
 						<div class="form-group">
 							<form:errors path="lastName" cssClass="error" />
 							<form:input path="lastName" placeholder="last name (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control  w-25" />
 						</div>
 
 						<!-- Email -->
@@ -108,30 +110,77 @@
 
 							<form:errors path="email" cssClass="error" />
 							<form:input path="email" placeholder="email (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control" style="width:100%;"/>
 						</div>
 
 					</form:form>
+					
+						<!-- Register Button -->
+			<div class="form-group	 ">
+					<button type="submit" class="btn btn-primary w-0" form="regUser">Register</button>
+			</div>
 
-					<!-- Register Button -->
-					<div class="form-group	d-inline ">
-						<button type="submit" class="btn btn-primary w-0" form="regUser">Register</button>
-					</div>
-
-					<form:form class="d-inline ml-n5"
-						action="${pageContext.request.contextPath}/showMyLoginPage"
-						method="GET">
-						<input type="submit" value="Back to login" class="d-inline" />
-					</form:form>
+			<form:form class=""
+				action="${pageContext.request.contextPath}/showMyLoginPage"
+				method="GET">
+				<input type="submit" value="Back to login" class="d-inline" />
+			</form:form>
 
 				</div>
 
 			</div>
 
+		
+
+
+
+
+
 		</div>
 
 
+
+
+
+
 	</section>
+
+
+
+
+
+	<div class="d-flex justify-content-center">
+		<div class="p-2">Flex item 1</div>
+		<div class="p-2 ">Flex item 2</div>
+		<div class="p-2 ">Flex item 3</div>
+	</div>
+	<div class="d-flex flex-row-reverse">
+		<div class="p-2">Flex item 1</div>
+		<div class="p-2">Flex item 2</div>
+		<div class="p-2">Flex item 3</div>
+	</div>
+
+
+
+
+
+	<section>
+
+		<div>
+			<form style="float: left;">
+				<label for="fname">First name:</label><br> <input type="text"
+					id="fname" name="fname"><br> <label for="lname">Last
+					name:</label><br> <input type="text" id="lname" name="lname">
+			</form>
+			<form style="float: left;">
+				<label for="fname">First name:</label><br> <input type="text"
+					id="fname" name="fname"><br> <label for="lname">Last
+					name:</label><br> <input type="text" id="lname" name="lname">
+			</form>
+		</div>
+
+	</section>
+
 
 
 </body>
