@@ -35,10 +35,11 @@
 
 
 		<div class=" container">
-			<div class="row  col-5">
-				<div class="card-body border border-dark bg-light" >
+			<div class="row  col-5 ">
+				<div class="card-body border border-primary bg-primary" >
 					<div class="card-title h2">Register New User</div>
-
+			</div>
+			<div class="row ">
 
 					<!-- Registration Form -->
 					<form:form

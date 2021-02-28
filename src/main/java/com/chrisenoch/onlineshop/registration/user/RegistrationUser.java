@@ -1,3 +1,5 @@
+
+
 package com.chrisenoch.onlineshop.registration.user;
 
 import javax.validation.constraints.NotNull;
@@ -16,8 +18,8 @@ public class RegistrationUser {
 	@Size(min = 1, message = "is required")
 	private String username;
 
-	@NotNull(message = "is required")
-	@Size(min = 1, message = "is required")
+	@NotNull(message = "")
+	@Size(min = 1)
 	@ValidPassword
 	private String password;
 	
@@ -34,8 +36,8 @@ public class RegistrationUser {
 	private String lastName;
 
 	@ValidEmail
-	@NotNull(message = "is required")
-	@Size(min = 1, message = "is required")
+	@NotNull(message = "Your email is required")
+	@Size(min = 1, message = "Your email is required")
 	private String email;
 
 	public RegistrationUser() {
