@@ -34,8 +34,8 @@ public class RegistrationUser {
 	private String lastName;
 
 	@ValidEmail
-	@NotNull(message = "is required")
-	@Size(min = 1, message = "is required")
+	@NotNull(message = "Your email is required")
+	@Size(min = 1, message = "Your email is required")
 	private String email;
 
 	public RegistrationUser() {
