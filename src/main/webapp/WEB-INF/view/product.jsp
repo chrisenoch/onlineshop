@@ -34,27 +34,18 @@
 						<div class="card-block px-2">
 							<h4 class="card-title">${product.name}</h4>
 
-
-							<p>${product.description}</p>
-
-							<p>
-								<strong>Item Code : </strong><span class="label label-warning">${product.id}</span>
-							</p>
-							<p>
-								<strong>Brand</strong> : ${product.brand}
-							</p>
-							<p>
-								<strong>Category</strong> : ${product.category}
-							</p>
-
-
+							<p>${product.description}</p>					
+							<p><strong>Item Code : </strong><span class="label label-warning">${product.id}</span></p>
+							<p><strong>Brand</strong> : ${product.brand}</p>					
+							<p><strong>Category</strong> : ${product.category}</p>
+							
 							<p>
 								<c:if test="${product.stock != 0}">
 									<strong>Available units in stock </strong> : ${product.stock}
-						</c:if>
+								</c:if>
 								<c:if test="${product.stock == 0}">
 									<strong>Available units in stock </strong> : Out of stock
-						</c:if>
+								</c:if>
 							</p>
 
 							<h4>EUR ${product.price/100}</h4>
