@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/style.css">
-<title>Products</title>
+<title>Product</title>
 </head>
 <body>
 	<header>
@@ -23,52 +23,61 @@
 
 	<section id="explore-section" class="text-muted py-5 mt-5">
 		<div class="container">
-			<div class="row">
-				
-				<img src="<c:url value="${product.pictureUrl}"></c:url>"
-					alt="image" style="width: 25%" />
-				
 
-				<div class="col-md-5">
-					<h3>${product.name}</h3>
-					<p>${product.description}</p>
-					<p>
-						<strong>Item Code : </strong><span class="label label-warning">${product.id}</span>
-					</p>
-					<p>
-						<strong>Brand</strong> : ${product.brand}
-					</p>
+			<div class="card border border-white">
+				<div class="row ">
+					<div class="col-auto">
+						<img src="<c:url value="${product.pictureUrl}"></c:url>"
+							class="img-fluid" alt="image" style="width: 18rem;">
+					</div>
+					<div class="col-md-5">
+						<div class="card-block px-2">
+							<h4 class="card-title">${product.name}</h4>
 
-					<p>
-						<strong>Category</strong> : ${product.category}
-					</p>
 
-					<p>
-						<c:if test="${product.stock != 0}">
-							<strong>Available units in stock </strong> : ${product.stock}
-				</c:if>
-						<c:if test="${product.stock == 0}">
-							<strong>Available units in stock </strong> : Out of stock
-				</c:if>
+							<p>${product.description}</p>
 
-					</p>
+							<p>
+								<strong>Item Code : </strong><span class="label label-warning">${product.id}</span>
+							</p>
+							<p>
+								<strong>Brand</strong> : ${product.brand}
+							</p>
+							<p>
+								<strong>Category</strong> : ${product.category}
+							</p>
 
-					<h4>EUR ${product.price/100}</h4>
-					<p>
-						<a href="<spring:url value="/shop" />" class="btn btn-default">
-							<span class="glyphicon-hand-left glyphicon"></span> back
-						</a>
-						<c:if test="${product.stock > 0}">
-							<a href="<spring:url value="/shop?id=${product.id}" />"
-								class="btn btn-warning btn-large"> <span
-								class="glyphicon-shopping-cart glyphicon"></span> Add to basket
-							</a>
+
+							<p>
+								<c:if test="${product.stock != 0}">
+									<strong>Available units in stock </strong> : ${product.stock}
 						</c:if>
-					</p>
+								<c:if test="${product.stock == 0}">
+									<strong>Available units in stock </strong> : Out of stock
+						</c:if>
+							</p>
+
+							<h4>EUR ${product.price/100}</h4>
+							<p>
+								<a href="<spring:url value="/shop" />" class="btn btn-default">
+									<span class="glyphicon-hand-left glyphicon"></span> back
+								</a>
+								<c:if test="${product.stock > 0}">
+									<a href="<spring:url value="/shop?id=${product.id}" />"
+										class="btn btn-primary">Add to basket</a>
+
+								</c:if>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
+
+	
 		</div>
 	</section>
+
+
 
 </body>
 </html>
