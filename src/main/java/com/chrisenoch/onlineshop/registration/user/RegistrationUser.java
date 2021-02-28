@@ -16,8 +16,8 @@ public class RegistrationUser {
 	@Size(min = 1, message = "is required")
 	private String username;
 
-	@NotNull(message = "is required")
-	@Size(min = 1, message = "is required")
+	@NotNull(message = "")
+	@Size(min = 1)
 	@ValidPassword
 	private String password;
 	
