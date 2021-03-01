@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -64,7 +66,7 @@
 								type='hidden' value="${orderId}" name='orderId' /> <input
 								type='hidden' value="${shippingCost}" name='shippingCost' />
 							<h3>Price:</h3>
-							<p>EUR ${amountFormatted}</p>
+							<p>${amountFormatted} €</p>
 							<!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
 							<script src='https://checkout.stripe.com/checkout.js'
 								class='stripe-button' data-key="${stripePublicKey}"

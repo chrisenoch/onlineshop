@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -54,7 +56,7 @@
 								</c:if>
 							</p>
 
-							<h4>EUR ${product.price/100}</h4>
+							<h4>${product.price/100} €</h4>
 							<p>
 								<a href="<spring:url value="/shop" />" class="btn btn-default">
 									<span class="glyphicon-hand-left glyphicon"></span> back

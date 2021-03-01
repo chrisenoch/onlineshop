@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -159,7 +161,7 @@
 
 							<div class="col">
 								<p>
-									<c:out value="${entry.product.priceFormatted}" />
+									<c:out value="${entry.product.priceFormatted} €" />
 								</p>
 							</div>
 
@@ -170,9 +172,9 @@
 
 					<hr>
 					<br>
-					<p>Subtotal: EUR ${totalOrderContentsPrice}</p>
-					<p>Shipping Cost: EUR ${shippingCost}</p>
-					<p>Total: EUR ${totalOrderPrice}</p>
+					<p>Subtotal: ${totalOrderContentsPrice} €</p>
+					<p>Shipping Cost: ${shippingCost} €</p>
+					<p>Total: ${totalOrderPrice} €</p>
 
 
 
