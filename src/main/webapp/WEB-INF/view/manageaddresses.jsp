@@ -32,9 +32,9 @@
 			<div class="row">
 				<div class="col">
 
-				<c:if test="${not empty addresses}">
-					<h1>Manage addresses</h1>
-				</c:if>
+					<c:if test="${not empty addresses}">
+						<h1>Manage addresses</h1>
+					</c:if>
 
 				</div>
 			</div>
@@ -69,7 +69,8 @@
 								action="${pageContext.request.contextPath}/checkoutchanged"
 								modelAttribute="address">
 								<input type='hidden' value="${address.id}" name='id' />
-								<input type="submit" class="btn btn-success mt-2" value="Select and checkout" />
+								<input type="submit" class="btn btn-success mt-2"
+									value="Select and checkout" />
 							</form:form>
 
 							<br> <br>
@@ -78,10 +79,10 @@
 					</c:forEach>
 				</div>
 				<div>
-				
-				
-				
-			
+
+
+
+
 					<h2>Add a new address</h2>
 					<i>* Asterisk means required.</i> <br> <br>
 
@@ -100,54 +101,63 @@
 
 
 					<form:form action="${addressmodel}" modelAttribute="address">
-					
-						<div class="form-group">
-						Country/Region (*): <form:input path="country" class="form-control-inline" />
-						<form:errors path="country" cssClass="error" />
-						</div>
-	
-						<div class="form-group">
-						Full name (*): <form:input path="fullName" class="form-control-inline" />
-						<form:errors path="fullName" cssClass="error" />
-						</div>
-				
-				<div class="form-group">
-						Phone number (*): <form:input path="telephoneNo" class="form-control-inline" />
-						<form:errors path="telephoneNo" cssClass="error" />
-						</div>
 
-					<div class="form-group">
-						Post code (*): <form:input path="postCode" class="form-control-inline" />
-						<form:errors path="postCode" cssClass="error" />
+						<div class="form-group">
+							Country/Region (*):
+							<form:input path="country" class="form-control-inline" />
+							<form:errors path="country" cssClass="error" />
 						</div>
 
 						<div class="form-group">
-						Address Line 1 (*): <form:input path="addressLine1" class="form-control-inline"/>
-						<form:errors path="addressLine1" cssClass="error" />
-						</div>
-
-					<div class="form-group">
-						Address Line 2 (optional) : <form:input path="addressLine2" class="form-control-inline" />
-						<form:errors path="addressLine2" cssClass="error" />
-						</div>
-
-					<div class="form-group">
-						Town/City (*): <form:input path="city" class="form-control-inline"/>
-						<form:errors path="city" cssClass="error" />
-						</div>
-
-					<div class="form-group">
-						County (*): <form:input path="countyOrState" class="form-control-inline"/>
-						<form:errors path="countyOrState" cssClass="error" />
+							Full name (*):
+							<form:input path="fullName" class="form-control-inline" />
+							<form:errors path="fullName" cssClass="error" />
 						</div>
 
 						<div class="form-group">
-						Delivery instructions (optional): <form:input
-							path="extraDeliveryInstructions" class="form-control-inline"/>
-						<form:errors path="extraDeliveryInstructions" cssClass="error" />
+							Phone number (*):
+							<form:input path="telephoneNo" class="form-control-inline" />
+							<form:errors path="telephoneNo" cssClass="error" />
 						</div>
 
-						
+						<div class="form-group">
+							Post code (*):
+							<form:input path="postCode" class="form-control-inline" />
+							<form:errors path="postCode" cssClass="error" />
+						</div>
+
+						<div class="form-group">
+							Address Line 1 (*):
+							<form:input path="addressLine1" class="form-control-inline" />
+							<form:errors path="addressLine1" cssClass="error" />
+						</div>
+
+						<div class="form-group">
+							Address Line 2 (optional) :
+							<form:input path="addressLine2" class="form-control-inline" />
+							<form:errors path="addressLine2" cssClass="error" />
+						</div>
+
+						<div class="form-group">
+							Town/City (*):
+							<form:input path="city" class="form-control-inline" />
+							<form:errors path="city" cssClass="error" />
+						</div>
+
+						<div class="form-group">
+							County (*):
+							<form:input path="countyOrState" class="form-control-inline" />
+							<form:errors path="countyOrState" cssClass="error" />
+						</div>
+
+						<div class="form-group">
+							Delivery instructions (optional):
+							<form:input path="extraDeliveryInstructions"
+								class="form-control-inline" />
+							<form:errors path="extraDeliveryInstructions" cssClass="error" />
+						</div>
+
+
 						<input type="submit" class="btn btn-success " value="Submit" />
 					</form:form>
 
@@ -159,6 +169,16 @@
 
 
 
-
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>

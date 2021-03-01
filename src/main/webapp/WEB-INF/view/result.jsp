@@ -36,15 +36,15 @@
 					</c:if>
 
 					<c:if test="${paymentSuccess == 'paymentFailed'}">
-						<h3 class="alert alert-danger" role="alert">Payment attempt failed. Please try
-							again or use a different payment card.</h3>
+						<h3 class="alert alert-danger" role="alert">Payment attempt
+							failed. Please try again or use a different payment card.</h3>
 					</c:if>
 
 					<c:if
 						test="${paymentSuccess == 'paymentSucceededButCheckoutNotSaved'}">
-						<h3 class="alert alert-success" role="alert">There has been a problem with your
-							order. Please contact the website administrator. Sorry for the
-							inconvenience.</h3>
+						<h3 class="alert alert-success" role="alert">There has been a
+							problem with your order. Please contact the website
+							administrator. Sorry for the inconvenience.</h3>
 					</c:if>
 
 					<a class="d-block py-1"
@@ -60,7 +60,17 @@
 		</div>
 	</section>
 
-
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>
 

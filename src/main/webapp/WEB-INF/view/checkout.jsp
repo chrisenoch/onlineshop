@@ -23,12 +23,12 @@
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 
-	
+
 
 	<section id="explore-section" class="text-muted py-5 mt-5">
 		<div class="container ">
-		
-		
+
+
 
 			<c:choose>
 				<c:when test="${orderContents == 0 || orderContents == null}">
@@ -38,7 +38,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:if test="${address == null}">
-						<h3>You need to add/select an address</h3>			
+						<h3>You need to add/select an address</h3>
 						<a
 							href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Add
 							an address</a>
@@ -88,6 +88,16 @@
 
 
 
-
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>

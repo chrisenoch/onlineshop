@@ -28,20 +28,26 @@
 			<div class="row">
 				<div class="col-md-6 mt-5">
 
-					<h1 class="mb-4" >Profile Page</h1>
+					<h1 class="mb-4">Profile Page</h1>
 					<p>
-						<spring:message code="profile-page.form.firstName.label" /> ${user.firstName}</p>
+						<spring:message code="profile-page.form.firstName.label" />
+						${user.firstName}
+					</p>
 					<p>
-						<spring:message code="profile-page.form.lastName.label" /> ${user.lastName}</p>
+						<spring:message code="profile-page.form.lastName.label" />
+						${user.lastName}
+					</p>
 					<p>
-						<spring:message code="profile-page.form.username.label" /> ${user.username}</p>
+						<spring:message code="profile-page.form.username.label" />
+						${user.username}
+					</p>
 
 
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
@@ -50,31 +56,32 @@
 						style="width: 100%" />
 
 					<c:if test="${isProfileOwner}">
-						
-							<form:form method="POST"
-								action="?${_csrf.parameterName}=${_csrf.token}"
-								modelAttribute="newProfilePicture" class="form-horizontal"
-								enctype="multipart/form-data">
-								<fieldset class="mt-2">
-									<legend class="pl-3 h6 font-weight-normal "	>Add new profile picture</legend>
-									<div class="form-group h6">
-										<div class="col-lg-10 ">
-											<form:input id="profileImage" path="profileImage" type="file"
-												class="form-control-file" />
-										</div>
+
+						<form:form method="POST"
+							action="?${_csrf.parameterName}=${_csrf.token}"
+							modelAttribute="newProfilePicture" class="form-horizontal"
+							enctype="multipart/form-data">
+							<fieldset class="mt-2">
+								<legend class="pl-3 h6 font-weight-normal ">Add new
+									profile picture</legend>
+								<div class="form-group h6">
+									<div class="col-lg-10 ">
+										<form:input id="profileImage" path="profileImage" type="file"
+											class="form-control-file" />
 									</div>
-									<div class="form-group">
-										<div class=" ml-0 col-lg-10 ">
-											<input type="submit" id="btnAdd" class="btn btn-primary"
-												value="Add" />
-										</div>
+								</div>
+								<div class="form-group">
+									<div class=" ml-0 col-lg-10 ">
+										<input type="submit" id="btnAdd" class="btn btn-primary"
+											value="Add" />
 									</div>
+								</div>
 
 
-								</fieldset>
+							</fieldset>
 
-							</form:form>
-						
+						</form:form>
+
 					</c:if>
 
 				</div>
@@ -89,11 +96,21 @@
 			<a href="?language=de">German</a>
 		</div>
 	</section>
-	
 
 
 
 
 
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
 </body>
 </html>
