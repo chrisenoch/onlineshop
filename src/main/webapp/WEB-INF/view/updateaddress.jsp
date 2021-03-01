@@ -28,7 +28,7 @@
 	</header>
 
 
-	<section id="explore-section" class="text-muted py-5 mt-5">
+	<section class="text-muted py-5 mt-5">
 		<div class="container ">
 
 			<h1>Update addresses</h1>

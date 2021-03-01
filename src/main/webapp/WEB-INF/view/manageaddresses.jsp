@@ -26,8 +26,8 @@
 	</header>
 
 
-	<!-- EXPLORE SECTION -->
-	<section id="explore-section" class=" text-muted py-5 mt-5">
+	
+	<section class=" text-muted py-5 mt-5">
 		<div class="container">
 			<div class="row">
 				<div class="col">

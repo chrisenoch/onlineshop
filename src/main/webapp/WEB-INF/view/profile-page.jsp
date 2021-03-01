@@ -22,8 +22,8 @@
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 
-	<!-- EXPLORE SECTION -->
-	<section id="explore-section" class="bg-light text-muted py-5">
+	
+	<section class="bg-light text-muted py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mt-5">
