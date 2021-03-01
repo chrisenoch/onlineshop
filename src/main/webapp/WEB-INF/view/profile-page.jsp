@@ -1,7 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<html>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -23,7 +25,7 @@
 	</header>
 
 	
-	<section class="bg-light text-muted py-5">
+	<section class="text-muted py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mt-5">
@@ -62,21 +64,22 @@
 							modelAttribute="newProfilePicture" class="form-horizontal"
 							enctype="multipart/form-data">
 							<fieldset class="mt-2">
-								<legend class="pl-3 h6 font-weight-normal ">Add new
+								<legend class="pl-3 h6 font-weight-light ">Add new
 									profile picture</legend>
-								<div class="form-group h6">
-									<div class="col-lg-10 ">
-										<form:input id="profileImage" path="profileImage" type="file"
-											class="form-control-file" />
-									</div>
-								</div>
-								<div class="form-group">
-									<div class=" ml-0 col-lg-10 ">
-										<input type="submit" id="btnAdd" class="btn btn-primary"
-											value="Add" />
-									</div>
-								</div>
 
+
+								<div class="input-group mb-3">
+									<div class="custom-file">
+										<form:input type="file" class="custom-file-input"
+											id="profileImage" path="profileImage" /> <label
+											class="custom-file-label" for="profileImage">Choose
+											file</label>
+									</div>
+									<div class="input-group-append">
+											<input type="submit" id="profileImage" class="btn btn-primary"
+											value="Add" />								
+									</div>
+								</div>
 
 							</fieldset>
 
@@ -91,7 +94,7 @@
 
 
 	<section>
-		<div class="pull-right" style="padding-right: 50px">
+		<div class="text-right" style="padding-right: 50px">
 			<a href="?language=en">English</a>|<a href="?language=es">Spanish</a>
 			<a href="?language=de">German</a>
 		</div>
