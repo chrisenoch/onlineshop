@@ -20,7 +20,7 @@
 </head>
 <body>
 	<header>
-		<c:set var="currentPage" value="profilePage" />
+		<c:set var="currentPage" value="profilePage" />		
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 

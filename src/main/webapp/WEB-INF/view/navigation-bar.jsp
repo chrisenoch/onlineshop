@@ -13,46 +13,58 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav ml-auto">
 
-				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/showProfilePage"
-					class="nav-link <c:if test="${currentPage == 'profilePage'}">
+				<c:if test="${profilePageDisabled == null }">
+					<li class="nav-item"><a
+						href="${pageContext.request.contextPath}/showProfilePage"
+						class="nav-link <c:if test="${currentPage == 'profilePage'}">
 						active</c:if>
 						">Profile
-						Page</a></li>
+							Page</a></li>
+				</c:if>
 
-				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/shop"
-					class="nav-link <c:if test="${currentPage == 'shop'}">
+				<c:if test="${shopDisabled == null }">
+					<li class="nav-item"><a
+						href="${pageContext.request.contextPath}/shop"
+						class="nav-link <c:if test="${currentPage == 'shop'}">
 						active</c:if>
 						">Shop</a></li>
+				</c:if>
 
-				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/shop/basket"
-					class="nav-link <c:if test="${currentPage == 'basket'}">
+				<c:if test="${basketDisabled == null }">
+					<li class="nav-item"><a
+						href="${pageContext.request.contextPath}/shop/basket"
+						class="nav-link <c:if test="${currentPage == 'basket'}">
 						active</c:if>
 						">Basket</a></li>
+				</c:if>
 
 
-		<c:if test="${currentPage != 'login'}">
+				<c:if test="${currentPage != 'login'}">
 
-				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/checkout"
-					class="nav-link <c:if test="${currentPage == 'checkout'}">
+					<c:if test="${checkoutDisabled == null }">
+						<li class="nav-item"><a
+							href="${pageContext.request.contextPath}/checkout"
+							class="nav-link <c:if test="${currentPage == 'checkout'}">
 						active</c:if>
 						">Checkout</a></li>
 
-				<li class="nav-item"><a
-					href="javascript: document.logoutForm.submit()" role="menuitem"
-					class="nav-link"> Logout</a></li>
+					</c:if>
 
-				<form:form name="logoutForm" style="display:inline"
-					action="${pageContext.request.contextPath}/logout" method="POST">
-					<input hidden="true" type="submit" value="Logout" />
-				</form:form>
-				
+					<c:if test="${logoutDisabled == null }">
+						<li class="nav-item"><a
+							href="javascript: document.logoutForm.submit()" role="menuitem"
+							class="nav-link"> Logout</a></li>
+
+						<form:form name="logoutForm" style="display:inline"
+							action="${pageContext.request.contextPath}/logout" method="POST">
+							<input hidden="true" type="submit" value="Logout" />
+						</form:form>
+
+
+					</c:if>
 				</c:if>
-				
-				
+
+
 
 			</ul>
 		</div>

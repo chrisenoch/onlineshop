@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -18,10 +19,11 @@
 
 <body>
 	<header>
+		<c:set var="logoutDisabled"/>
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 
-	
+
 	<section class=" text-muted py-5 mt-5">
 		<div class="container">
 			<div class="row">
