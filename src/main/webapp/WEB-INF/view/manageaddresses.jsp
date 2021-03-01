@@ -31,7 +31,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
+
+				<c:if test="${not empty addresses}">
 					<h1>Manage addresses</h1>
+				</c:if>
 
 				</div>
 			</div>

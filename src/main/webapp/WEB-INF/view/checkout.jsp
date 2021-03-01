@@ -5,65 +5,86 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/style.css">
 <title>Checkout</title>
 </head>
 <body>
-<h2>Checkout</h2>
+	<header>
+		<c:set var="currentPage" value="checkout" />
+		<%@ include file="navigation-bar.jsp"%>
+	</header>
 
-<c:choose> 
-  <c:when test="${orderContents == 0 || orderContents == null}">	
-      <p>You have no items in your basket.</p>
-    	<a href="${pageContext.request.contextPath}/shop">Go to shop</a>
-  </c:when>
-  <c:otherwise>
-	  <c:if test = "${address == null}">
-		<h3>Delivery address:</h3>
-		<p>You need to add/select an address</p>
-		<a href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Add an address</a>
-		</c:if>
 	
-		<c:if test = "${address != null}">
-		<h3>Delivery address:</h3>
-		<p>${address.fullName}</p>
-		<p>${address.addressLine1}, ${address.addressLine2}</p>
-		<p>${address.countyOrState}, ${address.postCode}</p>
-		<p>${address.country}</p>
+
+	<section id="explore-section" class="text-muted py-5 mt-5">
+		<div class="container ">
 		
-		<a href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Change address</a>
-	
-		<br><br>
-		<form action='${pageContext.request.contextPath}/charge' method='POST' id='checkout-form'>
-		    <input type='hidden' value="${amount}" name='amount' />
-		    <input type='hidden' value="${address.id}" name='addressId' />
-		    <input type='hidden' value="${orderId}" name='orderId' />
-		    <input type='hidden' value="${shippingCost}" name='shippingCost' />
-		    <h3>Price:</h3>
-		    <p>EUR ${amountFormatted}</p>
-		    <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
-		    <script
-		       src='https://checkout.stripe.com/checkout.js' 
-		       class='stripe-button'
-		       data-key="${stripePublicKey}" 
-		         data-amount="${amount}" 
-		         data-currency="${currency}"
-		       data-name='Onlineshop'
-		       data-description='Onlineshop checkout'
-		       data-image
-		         ='https://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
-		       data-locale='auto'
-		       data-zip-code='false'>
-		   </script>
-		   
-		   <input type="hidden"
-									   name="${_csrf.parameterName}"
-									   value="${_csrf.token}" />
-		   
-		</form>
-		</c:if>
-  
-  </c:otherwise>
-</c:choose>
+		
 
+			<c:choose>
+				<c:when test="${orderContents == 0 || orderContents == null}">
+					<h2>Checkout</h2>
+					<p>You have no items in your basket.</p>
+					<a href="${pageContext.request.contextPath}/shop">Go to shop</a>
+				</c:when>
+				<c:otherwise>
+					<c:if test="${address == null}">
+						<h3>You need to add/select an address</h3>			
+						<a
+							href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Add
+							an address</a>
+					</c:if>
+
+					<c:if test="${address != null}">
+						<h3>Delivery address:</h3>
+						<p>${address.fullName}</p>
+						<p>${address.addressLine1},${address.addressLine2}</p>
+						<p>${address.countyOrState},${address.postCode}</p>
+						<p>${address.country}</p>
+
+						<a
+							href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Change
+							address</a>
+
+						<br>
+						<br>
+						<form action='${pageContext.request.contextPath}/charge'
+							method='POST' id='checkout-form'>
+							<input type='hidden' value="${amount}" name='amount' /> <input
+								type='hidden' value="${address.id}" name='addressId' /> <input
+								type='hidden' value="${orderId}" name='orderId' /> <input
+								type='hidden' value="${shippingCost}" name='shippingCost' />
+							<h3>Price:</h3>
+							<p>EUR ${amountFormatted}</p>
+							<!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
+							<script src='https://checkout.stripe.com/checkout.js'
+								class='stripe-button' data-key="${stripePublicKey}"
+								data-amount="${amount}" data-currency="${currency}"
+								data-name='Onlineshop' data-description='Onlineshop checkout'
+								data-image='https://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+								data-locale='auto' data-zip-code='false'>
+								
+							</script>
+
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+
+						</form>
+					</c:if>
+
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</section>
 
 
 

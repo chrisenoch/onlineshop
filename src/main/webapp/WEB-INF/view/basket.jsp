@@ -95,9 +95,10 @@
 							</c:forEach>
 						</c:forEach>
 
-						<form action="${pageContext.request.contextPath}/checkout">
-							<input type="submit" value="Continue to checkout" />
-						</form>
+						<a class="btn btn-primary mb-5"
+							href="${pageContext.request.contextPath}/checkout" role="button">
+							Continue to checkout</a>
+
 					</c:if>
 
 
@@ -125,9 +126,9 @@
 								${entry.product.description}
 
 
-								<div class="d-flex mt-auto	">			
-									<form action="" method="POST" class="mr-2" >
-										<input type="hidden" name="id" value="${entry.id}"/>
+								<div class="d-flex mt-auto	">
+									<form action="" method="POST" class="mr-2">
+										<input type="hidden" name="id" value="${entry.id}" />
 
 										<!-- <hidden path="id" value ="${entry.id}" />  -->
 
@@ -148,8 +149,9 @@
 										<input type="hidden" name="${_csrf.parameterName}"
 											value="${_csrf.token}" />
 									</form>
-									
-									<a class="text-muted" href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+
+									<a class="text-muted"
+										href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
 								</div>
 
 
@@ -174,39 +176,17 @@
 
 
 
-
-					<form action="${pageContext.request.contextPath}/checkout">
-
-						<input type="submit" value="Go to checkout" />
-					</form>
+					<a class="btn btn-primary"
+						href="${pageContext.request.contextPath}/checkout" role="button">
+						Go to checkout</a>
 
 
 				</c:otherwise>
 			</c:choose>
 
-
-
-			<a href="${pageContext.request.contextPath}/">Back to Profile
-				Page</a> <br> <a href="${pageContext.request.contextPath}/shop/">Back
-				to Shop</a>
-
-
 		</div>
 	</section>
 
-
-	<div class="d-flex align-items-start flex-column bg-light"
-		style="height: 200px;">
-		<div class="mb-auto p-2">Flex item</div>
-		<div class="p-2">Flex item</div>
-		<div class="p-2">Flex item</div>
-	</div>
-
-	<div class="d-flex align-items-end flex-column" style="height: 200px;">
-		<div class="p-2">Flex item</div>
-		<div class="p-2">Flex item</div>
-		<div class="mt-auto p-2">Flex item</div>
-	</div>
 
 
 
