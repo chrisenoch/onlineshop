@@ -26,8 +26,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
+				
+					<h2 class="d-none d-lg-block">Sorry, we weren't able to find the user you specified.</h2>
+					<h2 class="h3 d-lg-none">Sorry, we weren't able to find the user you specified.</h2>
 
-					<h2>Sorry, we weren't able to find the user you specified.</h2>
 					<a class="d-block py-1"
 						href="${pageContext.request.contextPath}/shop/">Back to Shop</a> <a
 						class="d-block pb-1"

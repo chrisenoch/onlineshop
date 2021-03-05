@@ -29,11 +29,9 @@
 
 		<div class=" container">
 
-			<div class="row">
-				<div style="width: 20rem;">
+			<div class="row ml-2">
 
-
-					<div class="  card bg-light mt-5" >
+					<div class="  card bg-light mt-5" style="width: 20rem;">
 						<h5 class="card-header bg-primary text-white text-center">Sign
 							In</h5>
 
@@ -89,7 +87,7 @@
 						</div>
 
 					</div>
-				</div>
+				
 
 			</div>
 			<div class="row text-center">
