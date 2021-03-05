@@ -42,7 +42,7 @@
 					test="${updatedOrderContentsDueToStockShortage != null && orderContents == 0 }">
 
 					<%-- Refactor code below--%>
-					<h2>Shopping basket</h2>
+					<h1 class="h2">Shopping basket</h1>
 					<hr>
 					<p style="color: red; font-weight: bold;">Unfortunately our
 						stock levels have changed since you added the items to your
@@ -72,7 +72,7 @@
 
 				</c:when>
 				<c:otherwise>
-					<h2>Shopping basket</h2>
+					<h1 class="h2">Shopping basket</h1>
 					<hr>
 
 					<c:if test="${updatedOrderContentsDueToStockShortage != null}">
@@ -121,9 +121,9 @@
 
 							<div class="col-8 d-flex flex-column">
 
-								<p>
+								<h2 class="h5" >
 									<c:out value="${entry.product.name}" />
-								</p>
+								</h2>
 
 								${entry.product.description}
 
@@ -152,17 +152,20 @@
 											value="${_csrf.token}" />
 									</form>
 
-									<a class="text-muted"
-										href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}">Delete</a>
+									<a class="text-muted pr-1 pl-1  align-self-start"
+										href="${pageContext.request.contextPath}/shop/basket?del=${entry.product.id}"><small>Delete</small>
+									</a>
+									
+									<p class=" d-lg-none ml-2 font-weight-bold""><c:out value="${entry.product.priceFormatted} €" /></p>
 								</div>
 
 
 							</div>
 
-							<div class="col">
-								<p>
-									<c:out value="${entry.product.priceFormatted} €" />
-								</p>
+							<div class="col d-none d-lg-block ">
+								
+									<p class="font-weight-bold"><c:out value="${entry.product.priceFormatted} €" /></p>
+								
 							</div>
 
 
