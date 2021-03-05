@@ -54,31 +54,24 @@ public class RegistrationController {
 			System.out.println("Debugging: Errors sent");
 		}
 		
-		
 		theModel.addAttribute("regUser", new RegistrationUser());
 		
 		return "registration-form";
 	}
 	
-	@GetMapping("/processRegistrationForm")
-	public String processRegistrationForm() {
-		return "redirect:/register/showRegistrationForm";
-	}
 
 	@PostMapping("/processRegistrationForm")
 	public String processRegistrationForm(
-				@Valid @ModelAttribute("regUser") RegistrationUser theRegUser, 
+				@Valid @ModelAttribute("regUser") RegistrationUser regUser, 
 				BindingResult theBindingResult, 
 				Model theModel, RedirectAttributes redirectAttributes) {
 		
-		String username = theRegUser.getUserName();
+		String username = regUser.getUserName();
 		logger.info("Processing registration form for: " + username);
 		
 		// form validation
 		 if (theBindingResult.hasErrors()){
-			 
-			 List<FieldError> errors = theBindingResult.getFieldErrors();
-			 
+				 
 			 return "registration-form";
 	        }
 	 
@@ -93,14 +86,14 @@ public class RegistrationController {
 		 }
  
         if (existing != null){
-        	theModel.addAttribute("regUser", theRegUser);
+        	theModel.addAttribute("regUser", regUser);
         	registrationErrors.add("*User name already exists.");
 			//theModel.addAttribute("registrationError", "User name already exists.");
 			logger.warning("Username already exists.");
 			errorExists = true;
         }
         
-        String email = theRegUser.getEmail();
+        String email = regUser.getEmail();
         try {
         	existing = userService.getUserByEmail(email);
         } catch (Exception exc) {
@@ -108,7 +101,7 @@ public class RegistrationController {
         }
 
         if (existing != null || errorExists) {
-        	theModel.addAttribute("regUser", theRegUser);
+        	theModel.addAttribute("regUser", regUser);
         	registrationErrors.add("*Email already exists");
         	//theModel.addAttribute("registrationError", registrationErrors);
         	redirectAttributes.addFlashAttribute("registrationError", registrationErrors);
@@ -119,10 +112,15 @@ public class RegistrationController {
         
         
      // create user account        						
-        userService.save(theRegUser);
+        userService.save(regUser);
         
         logger.info("Successfully created user: " + username);
         
         return "registration-confirmation";		
+	}
+	
+	@GetMapping("/processRegistrationForm")
+	public String processRegistrationForm() {
+		return "redirect:/register/showRegistrationForm";
 	}
 }

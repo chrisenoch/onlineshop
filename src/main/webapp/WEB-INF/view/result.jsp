@@ -25,7 +25,7 @@
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 
-	
+
 	<section class=" text-muted py-5 mt-5">
 		<div class="container">
 			<div class="row">
@@ -50,8 +50,6 @@
 					<a class="d-block py-1"
 						href="${pageContext.request.contextPath}/shop/">Continue
 						shopping</a> <a class="d-block pb-1"
-						href="${pageContext.request.contextPath}/shop/basket">Go to
-						basket</a> <a class="d-block pb-1"
 						href="${pageContext.request.contextPath}/">Back to Profile
 						Page</a>
 

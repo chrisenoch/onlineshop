@@ -6,11 +6,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chrisenoch.onlineshop.entity.Address;
@@ -46,12 +49,36 @@ public class AccountController {
 	} //Learn code: Find another way of doing this?
 	
 	
+	@RequestMapping(value = "/testonly", method = { RequestMethod.GET, RequestMethod.POST })
+	public String test(HttpServletRequest request) {
+		
+		System.out.println("Debugging: Request method: " + request.getMethod());
+
+		return "manageaddresses";		
+	}
+	
+	@PostMapping("/fromcheckout")
+	public String fromCheckout(Model model, HttpSession session) {
+		
+		int userId = (int)session.getAttribute("userId"); 	
+		
+		model.addAttribute("fromCheckout", "fromCheckout");	
+		
+		Address address = new Address();
+		model.addAttribute("address", address);
+		displayAddressesByDefaultThenByMostRecentlyUsed(userId, model);
+		
+		return "manageaddresses";
+	}
+	
+	
 	@GetMapping("/addresses")
-	public String manageAddresses(Model model, HttpSession session
+	//@RequestMapping(value = "/addresses", method = { RequestMethod.GET, RequestMethod.POST })
+	public String manageAddresses(Model model, HttpSession session, HttpServletRequest request
 			, @RequestParam("del") Optional<Integer> addressIdDel
 			, @RequestParam("default") Optional<Integer> addressIdDefault
 			, @RequestParam("ch") Optional<Integer> fromCheckout
-			) {
+			) {	
 		
 		if (addressIdDel.isPresent()) {
 			try {
@@ -62,20 +89,19 @@ public class AccountController {
 			}	
 		}
 		
+//		if (fromCheckout.isPresent()) {
+//			//If user arrived from checkout page, add this var so that later when user adds/chooses an address, user directed back to checkout page
+//			model.addAttribute("fromCheckout", "fromCheckout");
+//		}
+		
 		int userId = (int)session.getAttribute("userId"); 	
 		if (addressIdDefault.isPresent()) {
 			addressService.setDefaultAddress(addressIdDefault.get(), userId);
 
 		}
 		
-		if (fromCheckout.isPresent()) {
-			//If user arrived from checkout page, add this var so that later when user adds/chooses an address, user directed back to checkout page
-			model.addAttribute("fromCheckout", "fromCheckout");
-		}
-		
 		Address address = new Address();
 		model.addAttribute("address", address);
-		
 		displayAddressesByDefaultThenByMostRecentlyUsed(userId, model);
 
 		return "manageaddresses";

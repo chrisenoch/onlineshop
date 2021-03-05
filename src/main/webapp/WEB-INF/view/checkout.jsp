@@ -40,10 +40,16 @@
 				</c:when>
 				<c:otherwise>
 					<c:if test="${address == null}">
-						<h3>You need to add/select an address</h3>
-						<a
-							href="${pageContext.request.contextPath}/account/addresses?ch=<c:out value="1"/>">Add
-							an address</a>
+						<h3 class="mb-3">You need to add/select an address</h3>
+						
+						
+						<form action="${pageContext.request.contextPath}/account/fromcheckout" method="POST">
+							<input type="hidden" name="ch" value="ch" />
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+							<input class="btn btn-primary" type="submit" value="Add an address" />
+						</form>		
+							
 					</c:if>
 
 					<c:if test="${address != null}">
