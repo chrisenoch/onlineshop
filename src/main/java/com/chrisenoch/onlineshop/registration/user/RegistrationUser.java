@@ -16,7 +16,7 @@ public class RegistrationUser {
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
-	private String username;
+	private String userName;
 
 	@NotNull(message = "")
 	@Size(min = 1)
@@ -45,11 +45,11 @@ public class RegistrationUser {
 	}
 
 	public String getUserName() {
-		return username;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
-		this.username = userName;
+		this.userName = userName;
 	}
 
 	public String getPassword() {
