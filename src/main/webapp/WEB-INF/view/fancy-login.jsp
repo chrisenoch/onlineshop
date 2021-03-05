@@ -71,32 +71,29 @@
 
 						<!-- Password -->
 						<div class="form-group">
-							<labelfor "password">Password</label>
-							<input type="password" name="password" 
-							class="form-control" >
-								
+							<labelfor"password">Password</label> <input type="password"
+								name="password" class="form-control">
 						</div>
 
 						<!-- Login/Submit Button -->
-
-
 						<input type="submit" class="btn btn-success btn-block p-2 mt-4 "
 							value="Login"></>
-							
 
 					</form:form>
 
 				</div>
 
+				<div class="row text-center">
+					<div class="col ">
+						<a
+							href="${pageContext.request.contextPath}/register/showRegistrationForm"
+							class="btn btn-primary mt-3" role="button">Register New User</a>
+					</div>
+				</div>
+
 			</div>
 
-			<div class="row">
-				<div class="d-inline col text-center">
-					<a
-						href="${pageContext.request.contextPath}/register/showRegistrationForm"
-						class="  btn btn-primary mt-3" role="button">Register New User</a>
-				</div>
-			</div>
+
 		</div>
 	</section>
 
