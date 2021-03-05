@@ -25,85 +25,83 @@
 		<%@ include file="navigation-bar.jsp"%>
 	</header>
 
-	<div class="home-inner container mt-5">
-		<div class="row">
+	<section class="text-muted py-5 mt-5">
 
-			<div class="col-lg-4 ">
+		<div class=" container">
+			<div class="  card bg-light mt-5" style="width: 20rem;">
+				<h5 class="card-header bg-primary text-white text-center">Sign
+					In</h5>
 
-				<div class=" px-3 py-2 card text-center card-form bg-light mt-5	">
+				<div class="card-body pt-3">
 
-					<div class="card-body">
-						<h3>Sign In</h3>
+					<!-- Login Form -->
+					<form:form
+						action="${pageContext.request.contextPath}/authenticateTheUser"
+						method="POST" class="form-horizontal">
 
-						<!-- Login Form -->
-						<form:form
-							action="${pageContext.request.contextPath}/authenticateTheUser"
-							method="POST" class="form-horizontal">
+						<!-- Place for messages: error, alert etc ... -->
+						<div class="form-group">
+							<div class="col-xs-15">
+								<div>
 
-							<!-- Place for messages: error, alert etc ... -->
-							<div class="form-group">
-								<div class="col-xs-15">
-									<div>
+									<!-- Check for login error -->
 
-										<!-- Check for login error -->
+									<c:if test="${param.error != null}">
 
-										<c:if test="${param.error != null}">
+										<div class="alert alert-danger">Invalid username and
+											password.</div>
 
-											<div class="alert alert-danger">Invalid username and
-												password.</div>
+									</c:if>
 
-										</c:if>
-
-										<!--		            
+									<!--		            
 									<div class="alert alert-success col-xs-offset-1 col-xs-10">
 										You have been logged out.
 									</div>
 								    -->
 
-									</div>
 								</div>
 							</div>
+						</div>
 
-							<!-- User name -->
-							<div class="form-group">
-								<input type="text" name="username" placeholder="username"
-									class="form-control" placeholder="Username">
-							</div>
+						<!-- User name -->
+						<div class="form-group">
+							<label for="username">Username</label> <input type="text"
+								name="username" class="form-control">
+						</div>
 
-							<!-- Password -->
-							<div class="form-group">
-								<input type="password" name="password" placeholder="password"
-									class="form-control">
-							</div>
+						<!-- Password -->
+						<div class="form-group">
+							<labelfor "password">Password</label>
+							<input type="password" name="password" 
+							class="form-control" >
+								
+						</div>
 
-							<!-- Login/Submit Button -->
+						<!-- Login/Submit Button -->
 
 
-							<input type="submit" class="btn btn-success btn-block"
-								value="Login"></>
+						<input type="submit" class="btn btn-success btn-block p-2 mt-4 "
+							value="Login"></>
 							
-						
 
 					</form:form>
 
-					</div>
-
-				</div>
-
-				<div class="row">
-					<div class="d-inline col text-center">
-						<a
-							href="${pageContext.request.contextPath}/register/showRegistrationForm"
-							class="  btn btn-primary mt-3" role="button">Register New
-							User</a>
-					</div>
 				</div>
 
 			</div>
 
-
+			<div class="row">
+				<div class="d-inline col text-center">
+					<a
+						href="${pageContext.request.contextPath}/register/showRegistrationForm"
+						class="  btn btn-primary mt-3" role="button">Register New User</a>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
+
+
+
 
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

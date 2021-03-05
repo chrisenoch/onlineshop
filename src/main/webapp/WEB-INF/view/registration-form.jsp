@@ -35,7 +35,7 @@
 
 
 		<div class=" container">
-			<div class="card" style="width: 25rem;">
+			<div class="card " style="width: 25rem;">
 				<h5 class="card-header bg-primary text-white">Register New User</h5>
 				<div class="card-body border border-primary bg-light">
 
