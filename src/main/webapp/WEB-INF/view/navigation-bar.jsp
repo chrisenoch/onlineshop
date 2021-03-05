@@ -50,7 +50,7 @@
 
 					</c:if>
 
-					<c:if test="${logoutDisabled == null }">
+					<c:if test="${logoutDisabled == null && user != null }">
 						<li class="nav-item"><a
 							href="javascript: document.logoutForm.submit()" role="menuitem"
 							class="nav-link"> Logout</a></li>
