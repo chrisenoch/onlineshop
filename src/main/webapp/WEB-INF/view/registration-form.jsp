@@ -36,7 +36,7 @@
 
 		<div class=" container">
 			<div class="card " style="width: 25rem;">
-				<h5 class="card-header bg-primary text-white">Register New User</h5>
+				<h5 class="card-header bg-primary text-white text-center">Register New User</h5>
 				<div class="card-body border border-primary bg-light">
 
 					<!-- Registration Form -->
@@ -71,22 +71,21 @@
 
 							<form:errors path="userName" cssClass="error" />
 							<form:input path="userName" placeholder="username (*)"
-								class="form-control " style="width: 21rem;" />
+								class="form-control " />
 						</div>
 
 						<!-- Password -->
 						<div class="form-group">
 							<form:errors path="password" cssClass="error" />
 							<form:password path="password" placeholder="password (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control"  />
 						</div>
 
 						<!-- Confirm Password -->
 						<div class="form-group">
 							<form:errors path="matchingPassword" cssClass="error" />
 							<form:password path="matchingPassword"
-								placeholder="confirm password (*)" class="form-control"
-								style="width: 21rem;" />
+								placeholder="confirm password (*)" class="form-control" />
 						</div>
 
 
@@ -94,14 +93,14 @@
 						<div class="form-group">
 							<form:errors path="firstName" cssClass="error" />
 							<form:input path="firstName" placeholder="first name (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control"/>
 						</div>
 
 						<!-- Last name -->
 						<div class="form-group">
 							<form:errors path="lastName" cssClass="error" />
 							<form:input path="lastName" placeholder="last name (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control" />
 						</div>
 
 						<!-- Email -->
@@ -109,20 +108,20 @@
 
 							<form:errors path="email" cssClass="error" />
 							<form:input path="email" placeholder="email (*)"
-								class="form-control" style="width: 21rem;" />
+								class="form-control"  />
 						</div>
 
 					</form:form>
 
 					<!-- Register Button -->
 					<div class="form-group	d-inline ">
-						<button type="submit" class="btn btn-primary w-0" form="regUser">Register</button>
+						<button type="submit" class="btn btn-primary btn-block mb-3" form="regUser">Register</button>
 					</div>
 
-					<form:form class="d-inline ml-n5"
+					<form:form class="d-inline ml-n5 mt-5"
 						action="${pageContext.request.contextPath}/showMyLoginPage"
 						method="GET">
-						<input type="submit" value="Back to login" class="d-inline" />
+						<input type="submit" value="Back to login" class="btn btn-sm btn-muted" />
 					</form:form>
 
 				</div>
