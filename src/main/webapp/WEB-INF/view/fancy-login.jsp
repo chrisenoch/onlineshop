@@ -28,70 +28,79 @@
 	<section class="text-muted py-5 mt-5">
 
 		<div class=" container">
-			<div class="  card bg-light mt-5" style="width: 20rem;">
-				<h5 class="card-header bg-primary text-white text-center">Sign
-					In</h5>
 
-				<div class="card-body pt-3">
+			<div class="row">
+				<div style="width: 20rem;">
 
-					<!-- Login Form -->
-					<form:form
-						action="${pageContext.request.contextPath}/authenticateTheUser"
-						method="POST" class="form-horizontal">
 
-						<!-- Place for messages: error, alert etc ... -->
-						<div class="form-group">
-							<div class="col-xs-15">
-								<div>
+					<div class="  card bg-light mt-5" >
+						<h5 class="card-header bg-primary text-white text-center">Sign
+							In</h5>
 
-									<!-- Check for login error -->
+						<div class="card-body pt-3">
 
-									<c:if test="${param.error != null}">
+							<!-- Login Form -->
+							<form:form
+								action="${pageContext.request.contextPath}/authenticateTheUser"
+								method="POST" class="form-horizontal">
 
-										<div class="alert alert-danger">Invalid username and
-											password.</div>
+								<!-- Place for messages: error, alert etc ... -->
+								<div class="form-group">
+									<div class="col-xs-15">
+										<div>
 
-									</c:if>
+											<!-- Check for login error -->
 
-									<!--		            
+											<c:if test="${param.error != null}">
+
+												<div class="alert alert-danger">Invalid username and
+													password.</div>
+
+											</c:if>
+
+											<!--		            
 									<div class="alert alert-success col-xs-offset-1 col-xs-10">
 										You have been logged out.
 									</div>
 								    -->
 
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
 
-						<!-- User name -->
-						<div class="form-group">
-							<label for="username">Username</label> <input type="text"
-								name="username" class="form-control">
-						</div>
+								<!-- User name -->
+								<div class="form-group">
+									<label for="username">Username</label> <input type="text"
+										name="username" class="form-control">
+								</div>
 
-						<!-- Password -->
-						<div class="form-group">
-							<labelfor"password">Password</label> <input type="password"
-								name="password" class="form-control">
-						</div>
+								<!-- Password -->
+								<div class="form-group">
+									<labelfor"password">Password</label> <input type="password"
+										name="password" class="form-control">
+								</div>
 
-						<!-- Login/Submit Button -->
-						<input type="submit" class="btn btn-success btn-block p-2 mt-4 "
-							value="Login"></>
+								<!-- Login/Submit Button -->
+								<input type="submit" class="btn btn-success btn-block p-2 mt-4 "
+									value="Login"></>
 
 					</form:form>
 
-				</div>
+						</div>
 
-				<div class="row text-center">
-					<div class="col ">
-						<a
-							href="${pageContext.request.contextPath}/register/showRegistrationForm"
-							class="btn btn-primary mt-3" role="button">Register New User</a>
 					</div>
 				</div>
 
 			</div>
+			<div class="row text-center">
+				<div div style="width: 20rem;">
+					<a
+						href="${pageContext.request.contextPath}/register/showRegistrationForm"
+						class="btn btn-primary mt-3" role="button">Register New User</a>
+				</div>
+			</div>
+
+
 
 
 		</div>
