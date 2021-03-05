@@ -130,8 +130,13 @@
 
 		</div>
 
-
 	</section>
+
+	
+	<c:forEach var="error" items="${errors}">
+	<p><c:out value="${error}." /></p>
+	</c:forEach>
+
 
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
