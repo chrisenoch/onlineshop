@@ -28,7 +28,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h1>This item is already in your basket.</h1>
+				
+					<h1 class="d-none d-lg-block">This item is already in your basket.</h1>
+					<h1 class="h3 d-lg-none">This item is already in your basket.</h1>
+					
+					
+					
 					<a class="d-block py-1"
 						href="${pageContext.request.contextPath}/shop/">Back to Shop</a> <a
 						class="d-block pb-1"
