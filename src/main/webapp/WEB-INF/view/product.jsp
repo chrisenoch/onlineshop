@@ -28,13 +28,13 @@
 
 			<div class="card border border-white">
 				<div class="row ">
-					<div class="col-auto">
+					<div class="col-6 col-sm-5">
 						<img src="<c:url value="${product.pictureUrl}"></c:url>"
-							class="img-fluid" alt="image" style="width: 18rem;">
+							class="img-fluid" alt="image" style="width: 16rem;">
 					</div>
-					<div class="col-md-5">
+					<div class="col-7 w-0 col-sm-6 col-md-5 col-12 mt-3 mt-sm-0" >
 						<div class="card-block px-2">
-							<h4 class="card-title">${product.name}</h4>
+							<h4 class="card-title">${product.name}</h4>	
 
 							<p>${product.description}</p>
 							<p>
