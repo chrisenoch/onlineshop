@@ -109,7 +109,7 @@ public class ProfilePageController {
 		if (theModel.getAttribute("nouserfound") != null) {
 			return "errorpage_usernotfound";
 		} else {
-			return "errorpage_general";
+			return "error";
 		}	
 	}
 	
