@@ -29,18 +29,18 @@
 		<div class="container">
 			<div class="row">
 				<c:forEach items="${products}" var="product">
-					<div class="col-sm-6 col-md-3 text-center">
+					<div class="col-6 col-md-3 text-center">
 						<div class="thumbnail">
 							<h3>${product.name}</h3>
 							<img src="<c:url value="${product.pictureUrl}"></c:url>"
 								alt="image" style="width: 75%" />
 
 
-							<p class="ml-2 mt-3">${product.price/100} €</p>
+							<p class="ml-2 mt-3"><span class="p-2 badge badge-warning" style="font-size:14px;">${product.price/100} €</span></p>
 
 							<p>
 								<c:if test="${product.stock != 0}">
-									<strong>Available units in stock </strong> : ${product.stock}
+									Available stock : <span class="badge badge-info">${product.stock}</span>
 								</c:if>
 								<c:if test="${product.stock == 0}">
 									<strong>Out of stock</strong>
