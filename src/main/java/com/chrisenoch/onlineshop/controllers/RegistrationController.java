@@ -96,13 +96,14 @@ public class RegistrationController {
         String email = regUser.getEmail();
         try {
         	existing = userService.getUserByEmail(email);
+        	registrationErrors.add("*Email already exists"); //If get to here, email already exists so an error is added.
         } catch (Exception exc) {
         	existing = null;
         }
 
         if (existing != null || errorExists) {
         	theModel.addAttribute("regUser", regUser);
-        	registrationErrors.add("*Email already exists");
+        	//registrationErrors.add("*Email already exists");
         	//theModel.addAttribute("registrationError", registrationErrors);
         	redirectAttributes.addFlashAttribute("registrationError", registrationErrors);
         	logger.warning("Email already exists.");

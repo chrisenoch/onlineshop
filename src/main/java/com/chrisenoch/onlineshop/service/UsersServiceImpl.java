@@ -94,7 +94,7 @@ private BCryptPasswordEncoder passwordEncoder;
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = usersDAO.getUserByUsername(username);
 		if (user == null) {
-			throw new UsernameNotFoundException("Invalid username or password.");
+			throw new UsernameNotFoundException("Invalid username or password."); 
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				mapRolesToAuthorities(user.getRoles()));
