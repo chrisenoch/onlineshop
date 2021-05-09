@@ -52,6 +52,7 @@ public class StockReservedByUserDaoImpl implements StockReservedByUserDao{
 				
 				theQuery.setParameter("theUser", theUser);
 				
+				
 				theQuery.executeUpdate();
 		
 	}

@@ -137,21 +137,22 @@ public class ChargeController {
         return "result";
     }
     
-    private LocalDateTime getNextWorkingDay() {
+	private static LocalDateTime getNextWorkingDay() {
     	LocalDateTime localDateTime = LocalDateTime.now();
-    	LocalTime localTime = LocalTime.of(17, 00);
-    	if (localDateTime.getDayOfWeek() != DayOfWeek.SATURDAY 
-    			|| localDateTime.getDayOfWeek() != DayOfWeek.SUNDAY || 
+    	LocalTime localTime = LocalTime.of(10, 00);
+    	if ((localDateTime.getDayOfWeek() != DayOfWeek.SATURDAY 
+    			|| localDateTime.getDayOfWeek() != DayOfWeek.SUNDAY) && 
     			localDateTime.toLocalTime().compareTo(localTime) < 0) {
-    		
     	return LocalDateTime.now();
     	
     	} else if (localDateTime.getDayOfWeek() != DayOfWeek.FRIDAY 
     			|| localDateTime.getDayOfWeek() != DayOfWeek.SATURDAY) {
+
     		
     		return localDateTime.plusDays(1);//return tomorrow
+    		
     	} else {
-    		return localDateTime.with(TemporalAdjusters.next(DayOfWeek.FRIDAY)); //date of coming Monday
+    		return localDateTime.with(TemporalAdjusters.next(DayOfWeek.MONDAY)); //date of coming Monday
     	}  	
     }
        
